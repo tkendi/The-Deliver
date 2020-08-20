@@ -25,7 +25,6 @@ export const deliverDataParsing = async (name, number) => {
     console.log(parsing)
     return parsing
   } catch (e) {
-    console.log(e);
   }
 };
 
@@ -45,6 +44,5 @@ export const deliveryInfo = async() => {
 
     return parsing
   } catch(e) {
-    console.log(e)
   }
 }

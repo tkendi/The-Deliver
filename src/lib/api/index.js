@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = process.env.REACT_APP_Delivery_URL;
+const url = 'https://apis.tracker.delivery/carriers ';
 
 export const deliverDataParsing = async (name, number) => {
   try {

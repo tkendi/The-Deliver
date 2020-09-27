@@ -28,7 +28,6 @@ export const deliverDataParsing = async (name, number) => {
   }
 };
 
-
 export const deliveryInfo = async() => {
   try {
     const data = await axios.get(`${url}`)

@@ -3,12 +3,9 @@ import { TextField, Button, Grid } from "@material-ui/core";
 import styles from "../styles/numInput.module.css";
 
 class numInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      number: 0,
-    };
-  }
+  state = {
+    number: 0,
+  };
   appChange = (e) => {
     this.setState({
       number: e.target.value,

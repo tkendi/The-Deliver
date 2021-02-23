@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "delivery",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +12,24 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
+=======
+  "name": "the-delivery",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+>>>>>>> 3474339 (typescript init)
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,7 +38,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+<<<<<<< HEAD
     "extends": "react-app"
+=======
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+>>>>>>> 3474339 (typescript init)
   },
   "browserslist": {
     "production": [

@@ -9,7 +9,7 @@ import { observer } from "mobx-react";
 //store
 import DeliverStore from "../stores";
 
-const Header = observer(() => {
+const DeliverTrackingHeader = observer(() => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [info, setInfo] = React.useState<any>({});
   const [sendInfo, setSendInfo] = React.useState<any>({
@@ -96,15 +96,14 @@ const Header = observer(() => {
   );
 });
 
-export default Header;
+export default DeliverTrackingHeader;
 
 const Wrap = styled.div`
   display: flex;
-  width: calc(100% - 16px);
+  width: 100%;
   height: 200px;
   background-color: #9a37de;
   align-items: flex-end;
-  padding: 0px 16px;
 `;
 
 const Title = styled.h1`
@@ -112,6 +111,7 @@ const Title = styled.h1`
   width: 50%;
   margin: 0px;
   padding-bottom: 10px;
+  padding-left: 16px;
 `;
 
 const SelectPosition = styled.div`

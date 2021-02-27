@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Main from "./container/main";
+import Deliver from "./container/deliver";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Main />
+      <Deliver />
     </>
   );
 }

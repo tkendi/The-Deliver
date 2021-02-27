@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { observer } from "mobx-react";
 
-const NumInput = () => {
+//store
+import DeliverStore from "../stores";
+
+const NumInput = observer(() => {
   const [text, setText] = React.useState<string>("");
   console.log(text);
   return (
@@ -11,12 +15,15 @@ const NumInput = () => {
           placeholder="송장번호를 입력해주세요"
           type="string"
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => {
+            setText(e.target.value);
+            DeliverStore.deliver.trackingName = e.target.value;
+          }}
         />
       </Wrap>
     </>
   );
-};
+});
 
 export default NumInput;
 

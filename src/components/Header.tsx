@@ -4,8 +4,12 @@ import { deliverDataParsing, deliveryInfo } from "../lib/api";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import NumInput from "./NumInput";
+import { observer } from "mobx-react";
 
-const Header = () => {
+//store
+import DeliverStore from "../stores";
+
+const Header = observer(() => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [info, setInfo] = React.useState<any>({});
   const [sendInfo, setSendInfo] = React.useState<any>({
@@ -38,6 +42,8 @@ const Header = () => {
                                 deliverName: cur,
                                 code: info.code[index],
                               });
+                              DeliverStore.deliver.code = info.code[index];
+                              DeliverStore.deliver.deliverName = cur;
                             }}
                           >
                             <p>{cur}</p>
@@ -62,7 +68,9 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Text style={{ width: "80%", paddingLeft: 15 }}></Text>
+                <Text style={{ width: "80%", paddingLeft: 15 }}>
+                  {sendInfo.deliverName}
+                </Text>
                 <div
                   style={{
                     width: "50%",
@@ -75,14 +83,18 @@ const Header = () => {
               </>
             )}
           </Select>
-          <Button>
+          <Button
+            onClick={() => {
+              DeliverStore.init();
+            }}
+          >
             <p style={{ color: "#fff", fontSize: 16 }}>조회</p>
           </Button>
         </SelectPosition>
       </Wrap>
     </>
   );
-};
+});
 
 export default Header;
 

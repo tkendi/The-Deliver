@@ -2,23 +2,31 @@ import axios from "axios";
 
 const url = "https://apis.tracker.delivery/carriers";
 
-export const deliverDataParsing = async (name?: string, number?: string) => {
+export const deliverDataParsing = async (
+  name: string,
+  id?: string,
+  number?: string
+) => {
+  console.log(name);
   try {
-    const data = await axios.get(`${url}/${name}/tracks/${number}`);
+    const data = await axios.get(
+      `${url}/${id}/tracks/${number}`
+    );
     console.log(name, number);
     console.log(data);
     const parsing = {
-      time: [],
-      location: [],
-      description: [],
+      time: [{}],
+      location: [{}],
+      description: [{}],
       state: "",
     };
 
     const progress = data.data.progresses;
     for (const keys in progress) {
-      // parsing.time[keys] = progress[keys].time;
-      // parsing.location[keys] = progress[keys].location.name;
-      // parsing.description[keys] = progress[keys].description;
+      const key: number = Number(keys) * 1;
+      parsing.time[key] = progress[key].time;
+      parsing.location[key] = progress[key].location.name;
+      parsing.description[key] = progress[key].description;
       console.log(keys);
     }
 

@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 # Getting Started with Create React App
 
->>>>>>> 3474339 (typescript init)
-=======
-# Getting Started with Create React App
-
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -16,57 +8,32 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
-=======
-=======
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-<<<<<<< HEAD
->>>>>>> 3474339 (typescript init)
-=======
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 You will also see any lint errors in the console.
 
 ### `yarn test`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Launches the test runner in the interactive watch mode.<br />
-=======
 Launches the test runner in the interactive watch mode.\
->>>>>>> 3474339 (typescript init)
-=======
-Launches the test runner in the interactive watch mode.\
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
-=======
-=======
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-<<<<<<< HEAD
->>>>>>> 3474339 (typescript init)
-=======
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
@@ -86,8 +53,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 ### Code Splitting
 
@@ -112,7 +77,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-=======
->>>>>>> 3474339 (typescript init)
-=======
->>>>>>> 34743399db52380d11818573bee4d96523bf27d0

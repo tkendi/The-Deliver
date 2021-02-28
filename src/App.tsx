@@ -1,26 +1,17 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Route } from "react-router-dom";
+
+//components
 import Deliver from "./container/deliver";
+import Main from "./container/main";
 
 function App() {
   return (
     <>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Deliver />
+      <Main />
+      <Route path="/tracking" component={Deliver} />
     </>
   );
 }

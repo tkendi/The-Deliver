@@ -13,7 +13,7 @@ const DeliverTrackingHeader = observer(() => {
   const [open, setOpen] = React.useState<boolean>(false);
   const [info, setInfo] = React.useState<any>({});
   const [sendInfo, setSendInfo] = React.useState<any>({
-    deliverName: "",
+    deliverName: "택배사를 선택해 주세요",
     code: "",
   });
   React.useEffect(() => {
@@ -24,7 +24,7 @@ const DeliverTrackingHeader = observer(() => {
   return (
     <>
       <Wrap>
-        <Title>택배조회 서비스</Title>
+        {/* <Title>택배조회 서비스</Title> */}
         <SelectPosition>
           <NumInput />
           <Select>
@@ -88,7 +88,7 @@ const DeliverTrackingHeader = observer(() => {
               DeliverStore.init();
             }}
           >
-            <p style={{ color: "#fff", fontSize: 16 }}>조회</p>
+            <p style={{ color: "#000", fontSize: 16 }}>조회</p>
           </Button>
         </SelectPosition>
       </Wrap>
@@ -99,23 +99,16 @@ const DeliverTrackingHeader = observer(() => {
 export default DeliverTrackingHeader;
 
 const Wrap = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
-  height: 200px;
-  background-color: #9a37de;
   align-items: flex-end;
-`;
-
-const Title = styled.h1`
-  color: #fff;
-  width: 50%;
-  margin: 0px;
-  padding-bottom: 10px;
-  padding-left: 16px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 `;
 
 const SelectPosition = styled.div`
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -130,7 +123,6 @@ const Select = styled.div`
   justify-content: center;
   align-items: center;
   width: 30%;
-  background-color: #e13ffa;
   height: 43px;
   margin-bottom: 10px;
   opacity: 0.45;
@@ -171,5 +163,4 @@ const Button = styled.button`
   width: 50px;
   padding: 0px;
   margin-left: 10px;
-  outline: #949494;
 `;

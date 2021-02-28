@@ -5,13 +5,10 @@ import Header from "../../components/DeliverTrackingHeader";
 const Main = () => {
   const [deliverInfo, setDeliverInfo] = React.useState({});
 
-
   return (
     <>
       <Header />
-      <>
-        <DeliveryParsing />
-      </>
+      <DeliveryParsing />
     </>
   );
 };

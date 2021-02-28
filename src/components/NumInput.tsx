@@ -37,5 +37,5 @@ const Input = styled.input`
   :focus {
     outline: none;
   }
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #f0f0f0;
 `;

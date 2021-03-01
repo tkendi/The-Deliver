@@ -3,31 +3,28 @@ import styled from "styled-components";
 import { Link, Route } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 
-//components
-import Deliver from "../container/deliver";
-
 const MainHeader = () => {
   return (
     <>
       <Wrap>
-        <MainTitleContainer style={{}}>
+        <MainTitleContainer>
           <Title>The Deliver</Title>
         </MainTitleContainer>
         <Container>
           <Item>
-            <CustomLink to="/">Home</CustomLink>
+            <CustomLink to="/">HOME</CustomLink>
           </Item>
           <Item>
-            <p>ABOUT PAGE</p>
+            <CustomLink to="#">ABOUT PAGE</CustomLink>
           </Item>
           <Item>
             <CustomLink to="/tracking">TRACKING</CustomLink>
           </Item>
           <Item>
-            <p>NEWS</p>
+            <CustomLink to="#">NEWS</CustomLink>
           </Item>
           <Item>
-            <p>CONTACT</p>
+            <CustomLink to="#">CONTACT</CustomLink>
           </Item>
           <Item>
             <SearchIcon />
@@ -42,12 +39,12 @@ export default MainHeader;
 
 const Wrap = styled.div`
   position: relative;
-  background-color: #fbfbfb;
+  background-color: #f2f2f2;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
-  padding: 0px 10px;
+  padding: 0px 15px;
 `;
 
 const Container = styled.div`
@@ -70,7 +67,10 @@ const CustomLink = styled(Link)`
   text-decoration: none;
   align-items: center;
   text-align: center;
-  color: #808080;
+  color: #262626;
+  font-family: "Hind", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
 `;
 
 const MainTitleContainer = styled.div`
@@ -82,6 +82,6 @@ const MainTitleContainer = styled.div`
 
 const Title = styled.p`
   font-family: "Fredoka One", cursive;
-  font-weight: '400';
-  font-size: 25px;
+  font-weight: "400";
+  font-size: 30px;
 `;

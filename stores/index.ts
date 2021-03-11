@@ -45,5 +45,3 @@ class DeliverTracking {
 const DeliverTrackingStore = new DeliverTracking();
 
 export default DeliverTrackingStore;
-
-//638029521533

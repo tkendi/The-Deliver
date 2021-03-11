@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { deliverDataParsing, deliveryInfo } from "../lib/api";
+import { deliverDataParsing, deliveryInfo } from "../api/deliver";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import NumInput from "./NumInput";

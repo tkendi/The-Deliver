@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { transform } from "typescript";
 
 //components
 import MainHeader from "../../components/MainHeader";
@@ -67,10 +66,11 @@ const BannerContainer = styled.div`
 const BannerText = styled.p``;
 
 const MoveImg = styled.img<{ moveNum?: number }>`
-  ${(props) =>
-    props.moveNum &&
-    css`
-      transition: all ease 2s 0s;
-      transform: translateX(${props.moveNum}px);
-    `}
+  animation-name : mymove;
+  animation-iteration-count : infinite;
+  animation-direction : alternate;
+  animation-duration : 2s;
+
+  from {transform: translateY(0px);}
+  to {transform: translateY(20px)};}
 `;

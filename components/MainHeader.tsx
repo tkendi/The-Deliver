@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, Route } from "react-router-dom";
+import Link from 'next/link'
 import SearchIcon from "@material-ui/icons/Search";
 
 const MainHeader = () => {
@@ -12,19 +12,19 @@ const MainHeader = () => {
         </MainTitleContainer>
         <Container>
           <Item>
-            <CustomLink to="/">HOME</CustomLink>
+            <CustomLink href="/">HOME</CustomLink>
           </Item>
           <Item>
-            <CustomLink to="#">ABOUT PAGE</CustomLink>
+            <CustomLink href="#">ABOUT PAGE</CustomLink>
           </Item>
           <Item>
-            <CustomLink to="/tracking">TRACKING</CustomLink>
+            <CustomLink href="/tracking">TRACKING</CustomLink>
           </Item>
           <Item>
-            <CustomLink to="#">NEWS</CustomLink>
+            <CustomLink href="#">NEWS</CustomLink>
           </Item>
           <Item>
-            <CustomLink to="#">CONTACT</CustomLink>
+            <CustomLink href="#">CONTACT</CustomLink>
           </Item>
           <Item>
             <SearchIcon />

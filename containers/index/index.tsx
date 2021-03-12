@@ -4,14 +4,14 @@ import styled, { css } from "styled-components";
 //components
 import MainHeader from "../../components/MainHeader";
 
-const Main = () => {
+const MainContainer = () => {
   const [move, setMove] = React.useState<number>(0);
-  React.useEffect(() => {
-    setMove(move + 30);
-    if (document.body.clientWidth < move) {
-      setMove(0);
-    }
-  }, [move]);
+  // React.useEffect(() => {
+  //   setMove(move + 30);
+  //   if (document.body.clientWidth < move) {
+  //     setMove(0);
+  //   }
+  // }, [move]);
   return (
     <>
       <MainHeader />
@@ -20,7 +20,7 @@ const Main = () => {
           <BannerWrap>
             <BannerContainer>
               <MoveImg
-                moveNum={move}
+                // moveNum={move}
                 src={
                   "https://media0.giphy.com/media/ZyiYUjOBlIfwccwwd2/giphy.gif"
                 }
@@ -34,7 +34,7 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainContainer;
 
 const Wrap = styled.div`
   width: 100%;
@@ -63,14 +63,12 @@ const BannerContainer = styled.div`
   background-color: #000;
 `;
 
-const BannerText = styled.p``;
-
 const MoveImg = styled.img<{ moveNum?: number }>`
-  animation-name : mymove;
+  /* animation-name : mymove;
   animation-iteration-count : infinite;
   animation-direction : alternate;
   animation-duration : 2s;
 
   from {transform: translateY(0px);}
-  to {transform: translateY(20px)};}
+  to {transform: translateY(20px)};} */
 `;

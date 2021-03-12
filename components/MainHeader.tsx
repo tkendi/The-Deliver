@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Link from 'next/link'
+import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
 
 const MainHeader = () => {
@@ -12,19 +12,29 @@ const MainHeader = () => {
         </MainTitleContainer>
         <Container>
           <Item>
-            <CustomLink href="/">HOME</CustomLink>
+            <Link href="/">
+              <LinkTitle>HOME</LinkTitle>
+            </Link>
           </Item>
           <Item>
-            <CustomLink href="#">ABOUT PAGE</CustomLink>
+            <Link href="#">
+              <LinkTitle>ABOUT PAGE</LinkTitle>
+            </Link>
           </Item>
           <Item>
-            <CustomLink href="/tracking">TRACKING</CustomLink>
+            <Link href="/deliver">
+              <LinkTitle>TRACKING</LinkTitle>
+            </Link>
           </Item>
           <Item>
-            <CustomLink href="#">NEWS</CustomLink>
+            <Link href="#">
+              <LinkTitle>NEWS</LinkTitle>
+            </Link>
           </Item>
           <Item>
-            <CustomLink href="#">CONTACT</CustomLink>
+            <Link href="#">
+              <LinkTitle>CONTACT</LinkTitle>
+            </Link>
           </Item>
           <Item>
             <SearchIcon />
@@ -39,7 +49,7 @@ export default MainHeader;
 
 const Wrap = styled.div`
   position: relative;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -61,16 +71,17 @@ const Item = styled.div`
   margin: 0px 15px;
 `;
 
-const CustomLink = styled(Link)`
+const LinkTitle = styled.p`
   padding: 0px;
   margin: 0px;
   text-decoration: none;
-  align-items: center;
   text-align: center;
-  color: #262626;
   font-family: "Hind", sans-serif;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const MainTitleContainer = styled.div`

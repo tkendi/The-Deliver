@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { deliverDataParsing } from "../lib/api";
+import { deliverDataParsing } from "../api/deliver";
 import { toJS } from "mobx";
 
 // interface deliverProp {
@@ -19,7 +19,7 @@ class DeliverTracking {
   parsingDeliverLocation: any;
   state: string | undefined;
   parsingDeliverTime: any;
-  parsingDeliverData: any
+  parsingDeliverData: any;
 
   constructor() {
     makeAutoObservable(this);
@@ -37,7 +37,7 @@ class DeliverTracking {
       this.parsingDeliverLocation = res?.location;
       this.parsingDeliverTime = res?.time;
       this.state = res?.state;
-      this.parsingDeliverData = res
+      this.parsingDeliverData = res;
     });
   };
 }

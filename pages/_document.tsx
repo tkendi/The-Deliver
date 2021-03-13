@@ -24,8 +24,13 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Hind&display=swap"
             rel="stylesheet"
           />
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
+            rel="stylesheet"
+          />
         </Head>
-        <body>
+        <body style={{ marginRight: 0, marginLeft: 0 }}>
           <Main />
           <NextScript />
         </body>

@@ -48,13 +48,15 @@ const MainHeader = () => {
 export default MainHeader;
 
 const Wrap = styled.div`
+  width: 100%;
   position: relative;
-  /* background-color: #f2f2f2; */
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
-  padding: 0px 15px;
+  /* margin: 5px 0px; */
+  /* padding: 0px 15px; */
+  /* padding-left: 15px; */
 `;
 
 const Container = styled.div`
@@ -85,7 +87,7 @@ const LinkTitle = styled.p`
 `;
 
 const MainTitleContainer = styled.div`
-  width: 50%;
+  width: 47%;
   display: flex;
   justify-content: flex-start;
   align-items: center;

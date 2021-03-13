@@ -7,11 +7,11 @@ import Header from "../../components/DeliverTrackingHeader";
 
 const DeliverContainer = () => {
   return (
-    <>
+    <React.Fragment>
       <MainHeader />
       <Header />
       <DeliveryParsing />
-    </>
+    </React.Fragment>
   );
 };
 

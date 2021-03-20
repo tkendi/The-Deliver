@@ -6,7 +6,7 @@ import Link from "next/link";
 import MainHeader from "../../components/MainHeader";
 
 //image
-import BannerImg from "../../public/images/banner/BannerImage.png";
+// import BannerImg from "../../public/images/banner/BannerImage.png";
 
 const MainContainer = () => {
   const [move, setMove] = React.useState<number>(0);
@@ -65,7 +65,7 @@ const BannerWrap = styled.div`
 
 const BannerContainer = styled.div`
   width: 100%;
-  height: 750px;
+  height: 670px;
   background-color: #000;
 `;
 
@@ -92,7 +92,7 @@ const BannerText = styled.button`
   font-family: "Fjalla One", sans-serf;
   font-weight: 400;
   font-size: 40px;
-  hover {
+  :hover {
     cursor: pointer;
   }
 `;

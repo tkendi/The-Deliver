@@ -105,7 +105,7 @@ const MoveImg = styled.div<{ width?: number }>`
     no-repeat 0 / 100% auto;
   background-size: 360px;
 
-  animation: ani 10s linear infinite;
+  animation: ani 5s linear infinite;
 
   @keyframes ani {
     0% {

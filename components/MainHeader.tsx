@@ -2,69 +2,86 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const MainHeader = () => {
+  const [menu, setMenu] = React.useState<boolean>(false);
   return (
-    <>
-      <Wrap>
-        <MainTitleContainer>
-          <Title>The Deliver</Title>
-        </MainTitleContainer>
-        <Container>
-          <Item>
-            <Link href="/">
-              <LinkTitle>HOME</LinkTitle>
-            </Link>
-          </Item>
-          <Item>
-            <Link href="#">
-              <LinkTitle>ABOUT PAGE</LinkTitle>
-            </Link>
-          </Item>
-          <Item>
-            <Link href="/deliver">
-              <LinkTitle>TRACKING</LinkTitle>
-            </Link>
-          </Item>
-          <Item>
-            <Link href="#">
-              <LinkTitle>NEWS</LinkTitle>
-            </Link>
-          </Item>
-          <Item>
-            <Link href="#">
-              <LinkTitle>CONTACT</LinkTitle>
-            </Link>
-          </Item>
-          <Item>
-            <SearchIcon />
-          </Item>
-        </Container>
-      </Wrap>
-    </>
+    <Wrap>
+      <MainTitleContainer>
+        <Title>The Deliver</Title>
+      </MainTitleContainer>
+      <Container menu={menu}>
+        <Item>
+          <Link href="/">
+            <LinkTitle>HOME</LinkTitle>
+          </Link>
+        </Item>
+        <Item>
+          <Link href="#">
+            <LinkTitle>ABOUT PAGE</LinkTitle>
+          </Link>
+        </Item>
+        <Item>
+          <Link href="/deliver">
+            <LinkTitle>TRACKING</LinkTitle>
+          </Link>
+        </Item>
+        <Item>
+          <Link href="#">
+            <LinkTitle>NEWS</LinkTitle>
+          </Link>
+        </Item>
+        <Item>
+          <Link href="#">
+            <LinkTitle>CONTACT</LinkTitle>
+          </Link>
+        </Item>
+        <Item>
+          <SearchIcon />
+        </Item>
+      </Container>
+      <Menubar onClick={() => setMenu(!menu)}>
+        <MenuIcon />
+      </Menubar>
+    </Wrap>
   );
 };
 
 export default MainHeader;
 
 const Wrap = styled.div`
-  width: 100%;
-  position: relative;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  /* margin: 5px 0px; */
-  /* padding: 0px 15px; */
-  /* padding-left: 15px; */
 `;
 
-const Container = styled.div`
-  width: 50%;
+const Container = styled.div<{ menu: boolean }>`
   display: flex;
-  flex-flow: row nowrap;
   justify-content: flex-end;
   align-items: center;
+
+  @media screen and (max-width: 680px) {
+    position: absolute;
+    right: 0px;
+    top: 90px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 3px;
+
+    display: ${({ menu }) => {
+      return menu === false ? "none" : "flex";
+    }};
+
+    div:nth-child(6) {
+      display: none;
+    }
+
+    > div {
+      margin: 20px;
+    }
+  }
 `;
 
 const Item = styled.div`
@@ -91,10 +108,29 @@ const MainTitleContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @media screen and (max-width: 680px) {
+    padding-left: 20px;
+  }
 `;
 
 const Title = styled.p`
+  padding-left: 20px;
   font-family: "Fredoka One", cursive;
   font-weight: "400";
   font-size: 30px;
+  display: flex;
+  align-items: center;
+`;
+
+const Menubar = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  position: relative;
+  right: 32px;
+  height: 97px;
+  @media screen and (min-width: 680px) {
+    display: none;
+  }
 `;

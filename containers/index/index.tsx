@@ -67,10 +67,21 @@ const BannerContainer = styled.div`
   width: 100%;
   height: 670px;
   background-color: #000;
+
+  @media screen and (max-width: 680px) {
+    align-items: center;
+    height: 400px;
+    padding: 40px 20px;
+    padding-bottom: 0px;
+  }
 `;
 
 const BannerTextWrap = styled.div`
   padding-left: 100px;
+
+  @media screen and (max-width: 680px) {
+    padding: 0px;
+  }
 `;
 
 const BannerTitle = styled.p`
@@ -114,5 +125,9 @@ const MoveImg = styled.div<{ width?: number }>`
     100% {
       background-position: 100vw 0;
     }
+  }
+
+  @media screen and (max-width: 680px) {
+    display: none;
   }
 `;

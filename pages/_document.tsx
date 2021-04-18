@@ -6,16 +6,6 @@ class MyDocument extends Document {
     return { ...initialProps };
   }
 
-  // static getInitialProps({ renderPage }) {
-  //   const sheet = new ServerStyleSheet();
-  //   const page = renderPage((App) => (props) =>
-  //     sheet.collectStyles(<App {...props} />)
-  //   );
-
-  //   const styleTags = sheet.getStyleElement();
-  //   return { ...page, styleTags };
-  // }
-
   render() {
     return (
       <Html>
@@ -34,7 +24,6 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Hind&display=swap"
             rel="stylesheet"
           />
-
           <link
             href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
             rel="stylesheet"

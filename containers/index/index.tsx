@@ -5,14 +5,10 @@ import Link from "next/link";
 //components
 import MainHeader from "../../components/MainHeader";
 
-//image
-// import BannerImg from "../../public/images/banner/BannerImage.png";
-
 const MainContainer = () => {
   const [move, setMove] = React.useState<number>(0);
 
   React.useEffect(() => {
-    // console.log(window.innerWidth);
     setMove(window.innerWidth);
   }, []);
 

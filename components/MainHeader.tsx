@@ -18,7 +18,7 @@ const MainHeader = () => {
           </Link>
         </Item>
         <Item>
-          <Link href="#">
+          <Link href="/about">
             <LinkTitle>ABOUT PAGE</LinkTitle>
           </Link>
         </Item>

@@ -27,69 +27,73 @@ const DeliverTrackingHeader = observer(() => {
         {/* <Title>택배조회 서비스</Title> */}
         <SelectPosition>
           <NumInput />
-          <Select>
-            {open ? (
-              <>
-                <div>
-                  <SelectTextWrap>
-                    {info.deliverName?.map((cur: any, index: number) => {
-                      return (
-                        <>
-                          <SelectTextContainer
-                            key={index}
-                            onClick={() => {
-                              setSendInfo({
-                                deliverName: cur,
-                                code: info.code[index],
-                              });
-                              DeliverStore.deliver.code = info.code[index];
-                              DeliverStore.deliver.deliverName = cur;
-                            }}
-                          >
-                            <p>{cur}</p>
-                          </SelectTextContainer>
-                        </>
-                      );
-                    })}
-                  </SelectTextWrap>
-                </div>
-                <Text style={{ width: "80%", paddingLeft: 15 }}>
-                  {sendInfo.deliverName}
-                </Text>
-                <div
-                  style={{
-                    width: "50%",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <ArrowDropUpIcon onClick={() => setOpen(!open)} />
-                </div>
-              </>
-            ) : (
-              <>
-                <Text style={{ width: "80%", paddingLeft: 15 }}>
-                  {sendInfo.deliverName}
-                </Text>
-                <div
-                  style={{
-                    width: "50%",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <ArrowDropDownIcon onClick={() => setOpen(!open)} />
-                </div>
-              </>
-            )}
-          </Select>
-          <Button
-            onClick={() => {
-              DeliverStore.init();
-            }}
-          >
-            <p style={{ color: "#000", fontSize: 16 }}>조회</p>
-          </Button>
+          {/* <BlockPos> */}
+            <Select onClick={() => setOpen(!open)}>
+              {open && sendInfo.code.length >= 0 ? (
+                <>
+                  <div>
+                    <SelectTextWrap>
+                      {info.deliverName?.map((cur: any, index: number) => {
+                        return (
+                          <>
+                            <SelectTextContainer
+                              key={index}
+                              onClick={() => {
+                                setSendInfo({
+                                  deliverName: cur,
+                                  code: info.code[index],
+                                });
+                                DeliverStore.deliver.code = info.code[index];
+                                DeliverStore.deliver.deliverName = cur;
+                              }}
+                            >
+                              <p>{cur}</p>
+                            </SelectTextContainer>
+                          </>
+                        );
+                      })}
+                    </SelectTextWrap>
+                  </div>
+                  <Text style={{ width: "80%", paddingLeft: 15 }}>
+                    {sendInfo.deliverName}
+                  </Text>
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    <ArrowDropUpIcon />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Text style={{ width: "80%", paddingLeft: 15 }}>
+                    {sendInfo.deliverName.length > 20
+                      ? sendInfo.deliverName.slice(0, 19) + "..."
+                      : sendInfo.deliverName}
+                  </Text>
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    <ArrowDropDownIcon />
+                  </div>
+                </>
+              )}
+            </Select>
+            <Button
+              onClick={() => {
+                DeliverStore.init();
+              }}
+            >
+              <p style={{ color: "#000", fontSize: 16 }}>조회</p>
+            </Button>
+          {/* </BlockPos> */}
         </SelectPosition>
       </Wrap>
     </>
@@ -105,6 +109,7 @@ const Wrap = styled.div`
   align-items: flex-end;
   margin-top: 50px;
   margin-bottom: 100px;
+  z-index: 999;
 `;
 
 const SelectPosition = styled.div`
@@ -116,7 +121,14 @@ const SelectPosition = styled.div`
   > div {
     opacity: 1;
   }
+
+  @media screen and (max-width: 680px) {
+    display: flex;
+    flex-flow: row wrap;
+  }
 `;
+
+const BlockPos = styled.div``;
 
 const Select = styled.div`
   display: flex;
@@ -127,6 +139,7 @@ const Select = styled.div`
   margin-bottom: 10px;
   opacity: 0.45;
   position: relative;
+  cursor: pointer;
 `;
 
 const SelectTextWrap = styled.div`

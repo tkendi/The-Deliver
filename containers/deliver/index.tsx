@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 //components
 import MainHeader from "../../components/MainHeader";
@@ -7,12 +8,18 @@ import Header from "../../components/DeliverTrackingHeader";
 
 const DeliverContainer = () => {
   return (
-    <React.Fragment>
+    <>
       <MainHeader />
-      <Header />
-      <DeliveryParsing />
-    </React.Fragment>
+      <Container>
+        <Header />
+        <DeliveryParsing />
+      </Container>
+    </>
   );
 };
 
 export default DeliverContainer;
+
+const Container = styled.div`
+  padding: 0px 30px;
+`;

@@ -33,41 +33,41 @@ const deliveryParsing = observer(() => {
             </Typography>
           </Item>
         </Container>
+        <BodyWrap>
+          {DeliverStore.parsingDeliverDescription?.map(
+            (cur: any, index: number) => {
+              return (
+                <>
+                  <BodyContainer>
+                    <BodyItem>
+                      <Typography style={{ textAlign: "center" }}>
+                        {cur.split("(")[0]}
+                      </Typography>
+                    </BodyItem>
+                    <BodyItem>
+                      <Typography>
+                        {
+                          DeliverStore.parsingDeliverData?.time[index]?.split(
+                            "T"
+                          )[0]  
+                        }
+                      </Typography>
+                    </BodyItem>
+                    <BodyItem>
+                      <Typography>{DeliverStore.state}</Typography>
+                    </BodyItem>
+                    <BodyItem>
+                      <Typography>
+                        {DeliverStore.parsingDeliverData?.location[index]}
+                      </Typography>
+                    </BodyItem>
+                  </BodyContainer>
+                </>
+              );
+            }
+          )}
+        </BodyWrap>
       </Wrap>
-      <BodyWrap>
-        {DeliverStore.parsingDeliverDescription?.map(
-          (cur: any, index: number) => {
-            return (
-              <>
-                <BodyContainer>
-                  <BodyItem>
-                    <Typography style={{ textAlign: "center" }}>
-                      {cur.split("(")[0]}
-                    </Typography>
-                  </BodyItem>
-                  <BodyItem>
-                    <Typography>
-                      {
-                        DeliverStore.parsingDeliverData?.time[index]?.split(
-                          "T"
-                        )[0]
-                      }
-                    </Typography>
-                  </BodyItem>
-                  <BodyItem>
-                    <Typography>{DeliverStore.state}</Typography>
-                  </BodyItem>
-                  <BodyItem>
-                    <Typography>
-                      {DeliverStore.parsingDeliverData?.location[index]}
-                    </Typography>
-                  </BodyItem>
-                </BodyContainer>
-              </>
-            );
-          }
-        )}
-      </BodyWrap>
     </>
   );
 });
@@ -76,7 +76,9 @@ export default deliveryParsing;
 
 const Wrap = styled.div`
   width: 100%;
+  overflow: scroll;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
@@ -84,7 +86,7 @@ const Wrap = styled.div`
 `;
 
 const Container = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -108,7 +110,7 @@ const BodyWrap = styled.div`
 `;
 
 const BodyContainer = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   padding: 15px 0px;
   border-bottom: 1px solid #9b9090;

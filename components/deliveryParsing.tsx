@@ -12,11 +12,11 @@ const deliveryParsing = observer(() => {
     <>
       <Wrap>
         <Container>
-          <Item>
+          {/* <Item>
             <Typography variant="h6" component="h3">
               상품단계
             </Typography>
-          </Item>
+          </Item> */}
           <Item>
             <Typography variant="h6" component="h3">
               처리일시
@@ -35,21 +35,21 @@ const deliveryParsing = observer(() => {
         </Container>
         <BodyWrap>
           {DeliverStore.parsingDeliverDescription?.map(
-            (cur: any, index: number) => {
+            (_: any, index: number) => {
               return (
                 <>
                   <BodyContainer>
-                    <BodyItem>
+                    {/* <BodyItem>
                       <Typography style={{ textAlign: "center" }}>
                         {cur.split("(")[0]}
                       </Typography>
-                    </BodyItem>
+                    </BodyItem> */}
                     <BodyItem>
                       <Typography>
                         {
                           DeliverStore.parsingDeliverData?.time[index]?.split(
                             "T"
-                          )[0]  
+                          )[0]
                         }
                       </Typography>
                     </BodyItem>
@@ -94,7 +94,7 @@ const Container = styled.div`
 `;
 
 const Item = styled.div`
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +104,8 @@ const BodyWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
+  flex-flow: column-reverse nowrap;
   justify-content: center;
   align-items: center;
 `;
@@ -118,7 +119,7 @@ const BodyContainer = styled.div`
 
 const BodyItem = styled.div`
   /* margin: 0px 10px; */
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   display: flex;
   justify-content: center;
   align-items: center;

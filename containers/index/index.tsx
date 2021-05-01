@@ -19,13 +19,21 @@ const MainContainer = () => {
         <Container>
           <BannerWrap>
             <BannerContainer>
-              <MoveImg width={move} />
+              {/* <MoveImg width={move} /> */}
               <BannerTextWrap>
                 <BannerTitle>
                   Do you want <br /> checking Delivery?
                 </BannerTitle>
+                <p style={{color: "#000", fontSize: 20}}>
+                  is simply dummy text of the printing and typesetting industry.<br />
+                  Lorem Ipsum has been the industry's standard dummy text<br /> ever
+                  since the 1500s,  
+                </p>
                 <Link href="/deliver">
                   <BannerText>Checking Now</BannerText>
+                </Link>
+                <Link href="/about">
+                  <BannerText another={true} >ABout Now</BannerText>
                 </Link>
               </BannerTextWrap>
             </BannerContainer>
@@ -43,6 +51,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 20px;
 `;
 
 const Container = styled.div`
@@ -61,8 +70,9 @@ const BannerWrap = styled.div`
 
 const BannerContainer = styled.div`
   width: 100%;
-  height: 670px;
-  background-color: #000;
+  height: 200px;
+  padding: 20px;
+  background-color: #FBFBFB;
 
   @media screen and (max-width: 680px) {
     align-items: center;
@@ -73,7 +83,7 @@ const BannerContainer = styled.div`
 `;
 
 const BannerTextWrap = styled.div`
-  padding-left: 100px;
+  padding-left: 30px;
 
   @media screen and (max-width: 680px) {
     padding: 0px;
@@ -82,26 +92,30 @@ const BannerTextWrap = styled.div`
 
 const BannerTitle = styled.p`
   font-family: "Fjalla One", sans-serif;
-  color: #fff;
-  line-height: 68px;
-  font-size: 50px;
+  color: #3CC;
+  /* line-height: px; */
+  font-size: 30px;
+  font-weight: bold;
   margin: 0px;
 `;
 
-const BannerText = styled.button`
-  margin-top: 70px;
+const BannerText = styled.button<{another?: boolean}>`
   outline: none;
   text-decoration: none;
   border: none;
   border-radius: 8px;
   color: #b181b7;
-  background-color: #000;
+  background-color: transparent;
   font-family: "Fjalla One", sans-serf;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 20px;
   :hover {
     cursor: pointer;
   }
+
+  ${(props) => props.another && css`
+    color: #88BBFF;
+  `}
 `;
 
 const MoveImg = styled.div<{ width?: number }>`

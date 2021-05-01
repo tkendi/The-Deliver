@@ -76,7 +76,6 @@ export default deliveryParsing;
 
 const Wrap = styled.div`
   width: 100%;
-  overflow: scroll;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

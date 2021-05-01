@@ -60,6 +60,7 @@ const Container = styled.div<{ menu: boolean }>`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  z-index: 999;
 
   @media screen and (max-width: 680px) {
     position: absolute;
@@ -69,6 +70,7 @@ const Container = styled.div<{ menu: boolean }>`
     align-items: flex-start;
     background-color: #fff;
     border-radius: 3px;
+    z-index: 9999;
 
     display: ${({ menu }) => {
       return menu === false ? "none" : "flex";

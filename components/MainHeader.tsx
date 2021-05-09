@@ -37,10 +37,10 @@ const MainHeader = () => {
             <LinkTitle>CONTACT</LinkTitle>
           </Link>
         </Item>
-        <Item>
-          <SearchIcon />
-        </Item>
       </Container>
+      <Item>
+        <SearchIcon />
+      </Item>
       <Menubar onClick={() => setMenu(!menu)}>
         <MenuIcon />
       </Menubar>
@@ -51,14 +51,16 @@ const MainHeader = () => {
 export default MainHeader;
 
 const Wrap = styled.div`
+  padding: 0px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 const Container = styled.div<{ menu: boolean }>`
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   z-index: 999;
 
@@ -106,23 +108,22 @@ const LinkTitle = styled.p`
 `;
 
 const MainTitleContainer = styled.div`
-  width: 47%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-right: 50px;
+  border: 1px solid #000;
 
   @media screen and (max-width: 680px) {
     padding-left: 20px;
   }
 `;
 
-const Title = styled.p`
-  padding-left: 20px;
+const Title = styled.h1`
   font-family: "Fredoka One", cursive;
   font-weight: "400";
   font-size: 30px;
   display: flex;
-  align-items: center;
 `;
 
 const Menubar = styled.div`

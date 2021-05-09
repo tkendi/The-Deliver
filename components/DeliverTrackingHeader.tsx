@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { deliverDataParsing, deliveryInfo } from "../api/deliver";
+import { deliveryInfo } from "../api/deliver";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import NumInput from "./NumInput";
@@ -21,6 +21,7 @@ const DeliverTrackingHeader = observer(() => {
       setInfo({ deliverName: res?.name, code: res?.code });
     });
   }, []);
+  
   return (
     <>
       <Wrap>
@@ -125,7 +126,7 @@ const SelectPosition = styled.div`
 `;
 
 const BlockPos = styled.div`
- margin-top: 10px;
+  margin-top: 10px;
   display: flex;
   flex-flow: row nowrap;
 `;

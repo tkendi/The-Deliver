@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const MainHeader = () => {
+  const router = useRouter();
+
   const [menu, setMenu] = React.useState<boolean>(false);
   return (
     <Wrap>
-      <MainTitleContainer>
+      <MainTitleContainer onClick={() => router.push("/")}>
         <Title>The Deliver</Title>
       </MainTitleContainer>
       <Container menu={menu}>
@@ -112,7 +115,7 @@ const MainTitleContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-right: 50px;
-  border: 1px solid #000;
+  cursor: pointer;
 
   @media screen and (max-width: 680px) {
     padding-left: 20px;
@@ -124,6 +127,7 @@ const Title = styled.h1`
   font-weight: "400";
   font-size: 30px;
   display: flex;
+  white-space: pre;
 `;
 
 const Menubar = styled.div`

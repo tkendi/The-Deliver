@@ -41,9 +41,11 @@ const MainHeader = () => {
           </Link>
         </Item>
       </Container>
-      <Item>
-        <SearchIcon />
-      </Item>
+      <IconWrap>
+        <Item>
+          <SearchIcon />
+        </Item>
+      </IconWrap>
       <Menubar onClick={() => setMenu(!menu)}>
         <MenuIcon />
       </Menubar>
@@ -138,6 +140,18 @@ const Menubar = styled.div`
   right: 32px;
   height: 97px;
   @media screen and (min-width: 680px) {
+    display: none;
+  }
+`;
+
+const IconWrap = styled.div`
+  @media screen and (max-width: 680px) {
+    padding-left: 20px;
+    display: none;
+  }
+
+  @media screen and (max-width: 990px) {
+    padding-left: 20px;
     display: none;
   }
 `;

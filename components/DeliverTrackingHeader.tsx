@@ -1,13 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { deliveryInfo } from "../api/deliver";
+// import Select from 'react-select'
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import NumInput from "./NumInput";
 import { observer } from "mobx-react";
 
+//components
+import NumInput from "./NumInput";
+
+//api
+import { deliveryInfo } from "../api/deliver";
+
 //store
-import DeliverStore from "../stores";
+import DeliverStore from "../stores/DeliveryTracking";
 
 const DeliverTrackingHeader = observer(() => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -22,6 +27,10 @@ const DeliverTrackingHeader = observer(() => {
     });
   }, []);
   
+  React.useEffect(( ) =>{
+    DeliverStore.init()
+  }, [JSON.stringify(DeliverStore.deliver)])
+
   return (
     <>
       <Wrap>
@@ -29,6 +38,7 @@ const DeliverTrackingHeader = observer(() => {
         <SelectPosition>
           <NumInput />
           <BlockPos>
+            {/* <Select placeholder="택배회사를 선택해 주세요" options={[{label: "asdf", value: "asdf"}]} /> */}
             <Select onClick={() => setOpen(!open)}>
               {open && sendInfo.code.length >= 0 ? (
                 <>
@@ -89,7 +99,7 @@ const DeliverTrackingHeader = observer(() => {
                 </>
               )}
             </Select>
-            <Button onClick={() => DeliverStore.init()}>조회</Button>
+            {/* <Button onClick={() => DeliverStore.init()}>조회</Button> */}
           </BlockPos>
         </SelectPosition>
       </Wrap>
@@ -167,17 +177,23 @@ const SelectTextContainer = styled.button`
   border: none;
   border-bottom: 1px solid #f0f0f0;
   padding: 3px 0px;
+  cursor: pointer;
+  > p {
+    padding: 10px 0px;
+    margin: 0px;
+  }
 `;
 
 const Text = styled.p``;
 
-const Button = styled.button`
-  /* width: 50px; */
-  height: fit-content;
-  padding: 10px 15px;
-  text-align: center;
-  border-radius: 8px;
-  border: none;
-  background: #f0f0f0;
-  margin-left: 15px;
-`;
+
+// const Button = styled.button`
+//   /* width: 50px; */
+//   height: fit-content;
+//   padding: 10px 15px;
+//   text-align: center;
+//   border-radius: 8px;
+//   border: none;
+//   background: #f0f0f0;
+//   margin-left: 15px;
+// `;

@@ -26,7 +26,6 @@ class DeliverTracking {
   }
 
   init = async () => {
-    console.log(toJS(this.deliver));
     deliverDataParsing(
       toJS(this.deliver).deliverName,
       this.deliver.code,

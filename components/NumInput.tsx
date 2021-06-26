@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { observer } from "mobx-react";
 
 //store
-import DeliverStore from "../stores";
+import DeliverStore from "../stores/DeliveryTracking";
 
 const NumInput = observer(() => {
   const [text, setText] = React.useState<string>("");

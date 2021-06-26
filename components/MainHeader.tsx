@@ -16,11 +16,6 @@ const MainHeader = () => {
       </MainTitleContainer>
       <Container menu={menu}>
         <Item>
-          <Link href="/">
-            <LinkTitle>HOME</LinkTitle>
-          </Link>
-        </Item>
-        <Item>
           <Link href="/about">
             <LinkTitle>ABOUT PAGE</LinkTitle>
           </Link>
@@ -60,6 +55,10 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 680px) {
+    padding: 0px;
+  }  
 `;
 
 const Container = styled.div<{ menu: boolean }>`
@@ -67,7 +66,7 @@ const Container = styled.div<{ menu: boolean }>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  z-index: 999;
+  margin-left: 30px;
 
   @media screen and (max-width: 680px) {
     position: absolute;

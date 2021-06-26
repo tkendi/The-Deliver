@@ -4,10 +4,15 @@ import styled from "styled-components";
 import { observer } from "mobx-react";
 
 //store
-import DeliverStore from "../stores";
+import DeliverStore from "../stores/DeliveryTracking";
+
 
 const deliveryParsing = observer(() => {
-  console.log(DeliverStore.parsingDeliverData);
+
+  React.useEffect(() => {
+
+  }, [JSON.stringify(DeliverStore.parsingDeliverDescription), JSON.stringify(DeliverStore.parsingDeliverData), JSON.stringify(DeliverStore.state)]) 
+
   return (
     <>
       <Wrap>
@@ -57,9 +62,9 @@ const deliveryParsing = observer(() => {
                       <Typography>{DeliverStore.state}</Typography>
                     </BodyItem>
                     <BodyItem>
-                      <Typography>
+                      < >
                         {DeliverStore.parsingDeliverData?.location[index]}
-                      </Typography>
+                      </>
                     </BodyItem>
                   </BodyContainer>
                 </>

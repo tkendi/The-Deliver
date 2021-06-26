@@ -17,7 +17,7 @@ const MainHeader = () => {
       <Container menu={menu}>
         <Item>
           <Link href="/about">
-            <LinkTitle>ABOUT PAGE</LinkTitle>
+            <LinkTitle>ABOUT</LinkTitle>
           </Link>
         </Item>
         <Item>

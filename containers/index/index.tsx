@@ -4,6 +4,7 @@ import styled from "styled-components";
 //components
 import MainHeader from "../../components/MainHeader";
 import TopBanner from './_fragments/TopBanner'
+import MiddleBanner from "./_fragments/MiddleBanner";
 
 const MainContainer = () => {
   // const [move, setMove] = React.useState<number>(0);
@@ -18,6 +19,7 @@ const MainContainer = () => {
       <Wrap>
         <Container>
           <TopBanner />
+          <MiddleBanner />
         </Container>
       </Wrap>
     </>
@@ -37,6 +39,7 @@ const Wrap = styled.div`
 const Container = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;

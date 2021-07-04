@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import Select from 'react-select'
+import Select from "react-select";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import { observer } from "mobx-react";
@@ -26,10 +26,29 @@ const DeliverTrackingHeader = observer(() => {
       setInfo({ deliverName: res?.name, code: res?.code });
     });
   }, []);
-  
-  React.useEffect(( ) =>{
-    DeliverStore.init()
-  }, [JSON.stringify(DeliverStore.deliver)])
+
+  React.useEffect(() => {
+    DeliverStore.init();
+  }, [JSON.stringify(DeliverStore.deliver)]);
+
+  const customStyles = {
+    // option: (provided, state) => ({
+    //   ...provided,
+    //   borderBottom: "1px dotted pink",
+    //   color: state.isSelected ? "red" : "blue",
+    //   padding: 20,
+    // }),
+    control: () => ({
+      // none of react-select's styles are passed to <Control />
+      width: 200,
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = "opacity 300ms";
+
+      return { ...provided, opacity, transition };
+    },
+  };
 
   return (
     <>
@@ -38,8 +57,12 @@ const DeliverTrackingHeader = observer(() => {
         <SelectPosition>
           <NumInput />
           <BlockPos>
-            {/* <Select placeholder="택배회사를 선택해 주세요" options={[{label: "asdf", value: "asdf"}]} /> */}
-            <Select onClick={() => setOpen(!open)}>
+            <CustomSelect
+              styles={customStyles}
+              placeholder="택배회사를 선택해 주세요"
+              options={[{ label: "asdf", value: "asdf" }]}
+            />
+            {/* <Select onClick={() => setOpen(!open)}>
               {open && sendInfo.code.length >= 0 ? (
                 <>
                   <div>
@@ -98,7 +121,7 @@ const DeliverTrackingHeader = observer(() => {
                   </div>
                 </>
               )}
-            </Select>
+            </Select> */}
             {/* <Button onClick={() => DeliverStore.init()}>조회</Button> */}
           </BlockPos>
         </SelectPosition>
@@ -141,52 +164,7 @@ const BlockPos = styled.div`
   flex-flow: row nowrap;
 `;
 
-const Select = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 180px;
-  height: 43px;
-  margin-bottom: 10px;
-  position: relative;
-  cursor: pointer;
-`;
-
-const SelectTextWrap = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  width: calc(100% - 20%);
-  height: 300px;
-  padding: 10px;
-  position: absolute;
-  top: 42px;
-  background: #fff;
-  border-top: 1px solid #bebebe;
-  overflow: scroll;
-  ::-webkit-scrollbar {
-    width: 3px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #2f3542;
-    border-radius: 10px;
-  }
-`;
-
-const SelectTextContainer = styled.button`
-  background: none;
-  border: none;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 3px 0px;
-  cursor: pointer;
-  > p {
-    padding: 10px 0px;
-    margin: 0px;
-  }
-`;
-
-const Text = styled.p``;
-
-
+const CustomSelect = styled(Select)``;
 // const Button = styled.button`
 //   /* width: 50px; */
 //   height: fit-content;

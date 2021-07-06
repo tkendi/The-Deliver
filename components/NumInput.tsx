@@ -7,7 +7,6 @@ import DeliverStore from "../stores/DeliveryTracking";
 
 const NumInput = observer(() => {
   const [text, setText] = React.useState<string>("");
-  console.log(text);
   return (
     <>
       <Wrap>

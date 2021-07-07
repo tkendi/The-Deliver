@@ -2,17 +2,10 @@ import axios from "axios";
 
 const url = "https://apis.tracker.delivery/carriers";
 
-export const deliverDataParsing = async (
-  name: string,
-  id?: string,
-  number?: string
-) => {
-  console.log(name);
+export const deliverDataParsing = async (id?: string, number?: string) => {
   try {
-    const data = await axios.get(
-      `${url}/${id}/tracks/${number}`
-    );
-    console.log(name, number);
+    const data = await axios.get(`${url}/${id}/tracks/${number}`);
+    console.log(number);
     console.log(data);
     const parsing = {
       time: [{}],
@@ -34,7 +27,9 @@ export const deliverDataParsing = async (
 
     console.log(parsing);
     return parsing;
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const deliveryInfo = async () => {

@@ -1,12 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { observer } from "mobx-react";
 
 //store
-import DeliverStore from "../stores/DeliveryTracking";
+import { useEffect } from "react";
 
-const NumInput = observer(() => {
+interface Props {
+  getTrackingNumber: (trackingNum: string) => void;
+}
+
+const NumInput = ({ getTrackingNumber }: Props) => {
   const [text, setText] = React.useState<string>("");
+
+  useEffect(() => {
+    getTrackingNumber(text);
+  }, [text]);
+
   return (
     <>
       <Wrap>
@@ -16,13 +24,12 @@ const NumInput = observer(() => {
           value={text}
           onChange={(e) => {
             setText(e.target.value);
-            DeliverStore.deliver.trackingName = e.target.value;
           }}
         />
       </Wrap>
     </>
   );
-});
+};
 
 export default NumInput;
 

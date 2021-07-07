@@ -1,8 +1,6 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import Select from "react-select";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import { observer } from "mobx-react";
 
 //components
@@ -15,17 +13,17 @@ import { deliveryInfo } from "../api/deliver";
 import DeliverStore from "../stores/DeliveryTracking";
 
 const DeliverTrackingHeader = observer(() => {
-  const [open, setOpen] = React.useState<boolean>(false);
-  const [info, setInfo] = React.useState<any>({});
-  const [deliverName, setDeliverName] = React.useState<
-    [{ value: ""; label: "" }]
-  >([{ value: "", label: "" }]);
-  const [sendInfo, setSendInfo] = React.useState<any>({
-    deliverName: "택배사를 선택해 주세요",
+  const [info, setInfo] = useState<any>({});
+  const [trackingNum, setTrackingNum] = useState("");
+  const [deliverName, setDeliverName] = useState<[{ value: ""; label: "" }]>([
+    { value: "", label: "" },
+  ]);
+  const [sendInfo, setSendInfo] = useState<any>({
+    deliverName: "",
     code: "",
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     deliveryInfo().then((res) => {
       setInfo({ deliverName: res?.name, code: res?.code });
       const arr: any = [];
@@ -36,16 +34,19 @@ const DeliverTrackingHeader = observer(() => {
     });
   }, []);
 
-  React.useEffect(() => {
-    console.log(sendInfo);
-  }, [sendInfo]);
-
-  React.useEffect(() => {
-    DeliverStore.init();
-  }, [JSON.stringify(DeliverStore.deliver)]);
+  useEffect(() => {
+    if (sendInfo.deliverName && sendInfo.code && trackingNum) {
+      console.log(sendInfo);
+      DeliverStore.init(sendInfo.code, trackingNum);
+    }
+  }, [sendInfo, trackingNum]);
 
   const onSelectDelivery = (e: { value: number; label: string }) => {
     setSendInfo({ deliverName: e.label, code: info.code[e.value] });
+  };
+
+  const getTrackingNumber = (trackingNum: string) => {
+    setTrackingNum(trackingNum);
   };
 
   const customStyles = {
@@ -72,9 +73,8 @@ const DeliverTrackingHeader = observer(() => {
   return (
     <>
       <Wrap>
-        {/* <Title>택배조회 서비스</Title> */}
         <SelectPosition>
-          <NumInput />
+          <NumInput getTrackingNumber={getTrackingNumber} />
           <BlockPos>
             <SelectWrap>
               <CustomSelect

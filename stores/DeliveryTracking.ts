@@ -1,12 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { deliverDataParsing } from "../api/deliver";
-
-// interface deliverProp {
-//     deliverName: string;
-//     code: string;
-//     trackingNumber: string;
-// }
-
+k
 class DeliverTracking {
   parsingDeliverDescription: any;
   parsingDeliverLocation: any;

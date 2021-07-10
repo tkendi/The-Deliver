@@ -65,18 +65,19 @@ const BorderDiv = styled.div`
 `;
 const ImageWrap = styled.div`
   width: 100%;
-  height: 100%;
+  height: 300px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 100px;
+  justify-content: space-around;
+  margin-top: 30px;
   > img {
     width: 300px;
-    margin-left: 70px;
   }
   > div {
     width: 50%;
     padding: 0px 20px;
     border-left: 3px solid #efefef;
+    text-overflow: ellipsis;
+    overflow: hidden;
     > p {
       line-height: 30px;
     }

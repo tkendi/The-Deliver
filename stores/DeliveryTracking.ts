@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { deliverDataParsing } from "../api/deliver";
-k
+
 class DeliverTracking {
   parsingDeliverDescription: any;
   parsingDeliverLocation: any;

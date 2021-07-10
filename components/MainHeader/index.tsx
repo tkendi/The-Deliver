@@ -3,12 +3,17 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SearchIcon from "@material-ui/icons/Search";
-import MenuIcon from "@material-ui/icons/Menu";
+import { motion, useCycle } from "framer-motion";
+// import MenuIcon from "@material-ui/icons/Menu";
+
+//components
+import MenuToggleButton from "./MenuToggleButton";
 
 const MainHeader = () => {
   const router = useRouter();
 
   const [menu, setMenu] = React.useState<boolean>(false);
+  const [isOpen, toggleOpen] = useCycle(false, true);
   return (
     <Wrap>
       <MainTitleContainer onClick={() => router.push("/")}>
@@ -42,7 +47,10 @@ const MainHeader = () => {
         </Item>
       </IconWrap>
       <Menubar onClick={() => setMenu(!menu)}>
-        <MenuIcon />
+        {/* <MenuIcon /> */}
+        <Nav initial={false} animate={isOpen ? "open" : "closed"}>
+          <MenuToggleButton toggle={() => toggleOpen()} />
+        </Nav>
       </Menubar>
     </Wrap>
   );
@@ -58,7 +66,7 @@ const Wrap = styled.div`
 
   @media screen and (max-width: 680px) {
     padding: 0px;
-  }  
+  }
 `;
 
 const Container = styled.div<{ menu: boolean }>`
@@ -76,7 +84,8 @@ const Container = styled.div<{ menu: boolean }>`
     align-items: flex-start;
     background-color: #fff;
     border-radius: 3px;
-    z-index: 9999;
+    /* transition-delay: 0.5s; */
+    z-index: 9;
 
     display: ${({ menu }) => {
       return menu === false ? "none" : "flex";
@@ -152,5 +161,12 @@ const IconWrap = styled.div`
   @media screen and (max-width: 990px) {
     padding-left: 20px;
     display: none;
+  }
+`;
+
+const Nav = styled(motion.nav)`
+  > button {
+    background-color: transparent;
+    border: none;
   }
 `;

@@ -45,7 +45,8 @@ const BannerContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 580px;
+  height: 94vh;
+  max-height: 840px;
   background-color: #000;
 
   @media screen and (max-width: 680px) {

@@ -4,16 +4,37 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import SearchIcon from "@material-ui/icons/Search";
 import { motion, useCycle } from "framer-motion";
-// import MenuIcon from "@material-ui/icons/Menu";
 
 //components
 import MenuToggleButton from "./MenuToggleButton";
+import Navigation from "./Navigation";
 
 const MainHeader = () => {
   const router = useRouter();
 
   const [menu, setMenu] = React.useState<boolean>(false);
   const [isOpen, toggleOpen] = useCycle(false, true);
+
+  const sidebar = {
+    open: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2,
+      },
+    }),
+    closed: {
+      clipPath: "circle(30px at 40px 40px)",
+      transition: {
+        delay: 0.3,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+  };
+
   return (
     <Wrap>
       <MainTitleContainer onClick={() => router.push("/")}>
@@ -47,7 +68,6 @@ const MainHeader = () => {
         </Item>
       </IconWrap>
       <Menubar onClick={() => setMenu(!menu)}>
-        {/* <MenuIcon /> */}
         <Nav initial={false} animate={isOpen ? "open" : "closed"}>
           <MenuToggleButton toggle={() => toggleOpen()} />
         </Nav>
@@ -165,8 +185,17 @@ const IconWrap = styled.div`
 `;
 
 const Nav = styled(motion.nav)`
+  position: relative;
   > button {
     background-color: transparent;
     border: none;
   }
+`;
+
+const Background = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 350px;
 `;

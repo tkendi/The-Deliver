@@ -50,16 +50,15 @@ const BorderDiv = styled.div`
   align-items: center;
   margin-bottom: 50px;
   > h1 {
-    margin: 0px;
-    padding: 0px;
-    font-weight: bold;
-    font-size: 32px;
     > div {
       position: absolute;
       left: -5px;
-      bottom: -7px;
+      bottom: 7px;
       width: 150px;
       border: 5px solid #f00;
+      border-radius: 10px;
+      opacity: 0.5;
+      z-index: -1;
     }
   }
 `;
@@ -73,6 +72,9 @@ const ImageWrap = styled.div`
     width: 300px;
   }
   > div {
+    > h1 {
+      margin: 0px;
+    }
     width: 50%;
     padding: 0px 20px;
     border-left: 3px solid #efefef;

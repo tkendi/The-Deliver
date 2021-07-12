@@ -48,13 +48,14 @@ const BorderDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
   > h1 {
+    font-size: 26px;
     > div {
       position: absolute;
-      left: -5px;
-      bottom: 7px;
-      width: 150px;
+      left: 10px;
+      bottom: 20px;
+      width: 120px;
       border: 5px solid #f00;
       border-radius: 10px;
       opacity: 0.5;
@@ -62,6 +63,7 @@ const BorderDiv = styled.div`
     }
   }
 `;
+
 const ImageWrap = styled.div`
   width: 100%;
   height: 300px;
@@ -72,6 +74,9 @@ const ImageWrap = styled.div`
     width: 300px;
   }
   > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     > h1 {
       margin: 0px;
     }

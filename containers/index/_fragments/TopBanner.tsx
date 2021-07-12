@@ -1,35 +1,35 @@
-import React from 'react'
-import styled, {css} from 'styled-components'
+import React from "react";
+import styled, { css } from "styled-components";
 import Link from "next/link";
 
 const TopBanner = () => {
-    return (
-        <BannerWrap>
-        <BannerContainer>
-          <MoveImg />
-          <BannerTextWrap>
-            <BannerTitle>
-              Do you want <br /> checking Delivery?
-            </BannerTitle>
-            <p style={{ color: "#fff", fontSize: 20, marginBottom: 50 }}>
-              is simply dummy text of the printing and typesetting industry.
-              <br />
-              Lorem Ipsum has been the industry's standard dummy text
-              <br /> ever since the 1500s,
-            </p>
-            <Link href="/deliver">
-              <BannerText style={{ paddingLeft: 0 }}>
-                Checking Now
-              </BannerText>
-            </Link>
-            <Link href="/about">
-              <BannerText another={true}>ABout Now</BannerText>
-            </Link>
-          </BannerTextWrap>
-       </BannerContainer>
-      </BannerWrap>
-    )
-}
+  return (
+    <BannerWrap>
+      <BannerContainer>
+        <BannerTextWrap>
+          <BannerTitle>
+            Do you want <br /> checking Delivery?
+          </BannerTitle>
+          <p style={{ color: "#fff", fontSize: 20, marginBottom: 50 }}>
+            is simply dummy text of the printing and typesetting industry.
+            <br />
+            Lorem Ipsum has been the industry's standard dummy text
+            <br /> ever since the 1500s,
+          </p>
+          <Link href="/deliver">
+            <BannerText style={{ paddingLeft: 0 }}>Checking Now</BannerText>
+          </Link>
+          <Link href="/about">
+            <BannerText another={true}>ABout Now</BannerText>
+          </Link>
+        </BannerTextWrap>
+        <MoveImg>
+          {/* <p>asdf</p> */}
+        </MoveImg>
+      </BannerContainer>
+    </BannerWrap>
+  );
+};
 
 export default TopBanner;
 
@@ -59,7 +59,7 @@ const BannerContainer = styled.div`
 
 const BannerTextWrap = styled.div`
   padding-left: 30px;
-  z-index: 9999 ;
+  z-index: 9999;
 
   @media screen and (max-width: 680px) {
     padding: 0px;
@@ -98,13 +98,30 @@ const BannerText = styled.button<{ another?: boolean }>`
 
 const MoveImg = styled.div<{ width?: number }>`
   position: absolute;
-  top: 100px;
+  bottom: 100px;
   right: 100px;
-  width: 360px;
-  height: 250px;
+  width: 650px;
+  height: 320px;
   background: url("https://okean.ch/user/pages/03.delivery/delivery01.png")
     no-repeat;
-  background-size: 360px;
+  background-size: cover;
+
+  animation-name: truck;
+  animation-duration: 4.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+
+  @keyframes truck {
+    0% {
+      left: -10px;
+      bottom: 100px;
+    }
+    100% {
+      left: 2000px;
+      bottom: 100px;
+    }
+  }
 
   @media screen and (max-width: 980px) {
     display: none;

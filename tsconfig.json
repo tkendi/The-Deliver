@@ -3,10 +3,11 @@
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -16,8 +17,20 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "api/*": ["api/*"],
+      "public/*": ["public/*"],
+      "components/*": ["components/*"],
+      "containers/*": ["containers/*"],
+      "utils/*": ["utils/*"],
+      "static/*": ["static/*"],
+      "layout/*": ["layout/*"],
+      "interfaces/*": ["interfaces/*"],
+      "stores/*": ["stores/*"]
+    }
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.svg"]
 }

@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 //components
-import MainHeader from "../../components/MainHeader";
+import MainHeader from "components/MainHeader";
 
 interface StyledProps {
   color?: string;

@@ -36,20 +36,6 @@ const MenuItem = ({ i }) => {
 
 export default MenuItem;
 
-// .icon_placeholder {
-//     border-radius: 50%;
-//     width: 50px;
-//     height: 50px;
-//     margin-right: 30px;
-// }
-
-// .text_placeholder {
-//     width: 200px;
-//     height: 20px;
-//     border-radius: 5px;
-//     flex: 1;
-// }
-
 const Icon = styled.div`
   border-radius: 50%;
   width: 50px;

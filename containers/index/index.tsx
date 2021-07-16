@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 //components
-import MainHeader from "../../components/MainHeader";
-import TopBanner from './_fragments/TopBanner'
+import MainHeader from "components/MainHeader";
+import TopBanner from "./_fragments/TopBanner";
 import MiddleBanner from "./_fragments/MiddleBanner";
 
 const MainContainer = () => {
@@ -43,4 +43,3 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-

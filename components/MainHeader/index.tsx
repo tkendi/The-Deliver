@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,7 +7,17 @@ import { motion, useCycle } from "framer-motion";
 
 //components
 import MenuToggleButton from "./MenuToggleButton";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
+
+// fixed
+// Main Header Item Data
+
+const MainHeaderItemData = [
+  { id: 1, link: "/about", title: "ABOUT" },
+  { id: 2, link: "/deliver", title: "TRACKING" },
+  { id: 3, link: "/news", title: "NEWS" },
+  { id: 4, link: "/contact", title: "CONTACT" },
+];
 
 const MainHeader = () => {
   const router = useRouter();
@@ -15,25 +25,25 @@ const MainHeader = () => {
   const [menu, setMenu] = React.useState<boolean>(false);
   const [isOpen, toggleOpen] = useCycle(false, true);
 
-  const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2,
-      },
-    }),
-    closed: {
-      clipPath: "circle(30px at 40px 40px)",
-      transition: {
-        delay: 0.3,
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  };
+  // const sidebar = {
+  //   open: (height = 1000) => ({
+  //     clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+  //     transition: {
+  //       type: "spring",
+  //       stiffness: 20,
+  //       restDelta: 2,
+  //     },
+  //   }),
+  //   closed: {
+  //     clipPath: "circle(30px at 40px 40px)",
+  //     transition: {
+  //       delay: 0.3,
+  //       type: "spring",
+  //       stiffness: 400,
+  //       damping: 40,
+  //     },
+  //   },
+  // };
 
   return (
     <Wrap>
@@ -41,26 +51,17 @@ const MainHeader = () => {
         <Title>The Deliver</Title>
       </MainTitleContainer>
       <Container menu={menu}>
-        <Item>
-          <Link href="/about">
-            <LinkTitle>ABOUT</LinkTitle>
-          </Link>
-        </Item>
-        <Item>
-          <Link href="/deliver">
-            <LinkTitle>TRACKING</LinkTitle>
-          </Link>
-        </Item>
-        <Item>
-          <Link href="#">
-            <LinkTitle>NEWS</LinkTitle>
-          </Link>
-        </Item>
-        <Item>
-          <Link href="#">
-            <LinkTitle>CONTACT</LinkTitle>
-          </Link>
-        </Item>
+        {MainHeaderItemData.map(
+          (cur: { id: number; link: string; title: string }, index: number) => {
+            return (
+              <Item active={router.asPath.includes(cur.link)} key={index}>
+                <Link href={cur.link}>
+                  <LinkTitle>{cur.title}</LinkTitle>
+                </Link>
+              </Item>
+            );
+          }
+        )}
       </Container>
       <IconWrap>
         <Item>
@@ -121,10 +122,16 @@ const Container = styled.div<{ menu: boolean }>`
   }
 `;
 
-const Item = styled.div`
+const Item = styled.div<{ active?: boolean }>`
   border: none;
   outline: none;
   margin: 0px 15px;
+
+  ${(props) =>
+    props.active &&
+    css`
+      border-bottom: 3px solid #1a1a1a;
+    `}
 `;
 
 const LinkTitle = styled.p`
@@ -146,6 +153,11 @@ const MainTitleContainer = styled.div`
   align-items: center;
   margin-right: 50px;
   cursor: pointer;
+  transition: 0.2s all linear;
+
+  :hover{
+    transform: scale(1.1  );
+  }
 
   @media screen and (max-width: 680px) {
     padding-left: 20px;

@@ -1,4 +1,4 @@
-import SkeletonContainer from "../../../containers/example/skeleton";
+import SkeletonContainer from "containers/example/skeleton";
 
 const AboutPage = () => <SkeletonContainer />;
 

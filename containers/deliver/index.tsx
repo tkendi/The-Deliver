@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 //components
-import MainHeader from "../../components/MainHeader";
-import DeliveryParsing from "../../components/deliveryParsing";
-import Header from "../../components/DeliverTrackingHeader";
+import MainHeader from "components/MainHeader";
+import DeliveryParsing from "components/deliveryParsing";
+import Header from "components/DeliverTrackingHeader";
 
 const DeliverContainer = () => {
   return (

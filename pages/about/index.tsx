@@ -1,4 +1,4 @@
-import AboutContainer from "../containers/about";
+import AboutContainer from "../../containers/about";
 
 const AboutPage = () => <AboutContainer />;
 

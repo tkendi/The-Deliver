@@ -58,7 +58,7 @@ const BorderDiv = styled.div`
       width: 120px;
       border: 5px solid #f00;
       border-radius: 10px;
-      opacity: 0.5;
+      opacity: 0.78 ;
       z-index: -1;
     }
   }

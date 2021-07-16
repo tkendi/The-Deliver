@@ -1,4 +1,4 @@
-import DeliverContainer from "../containers/deliver";
+import DeliverContainer from "containers/deliver";
 
 const DeliverPage = () => <DeliverContainer />;
 

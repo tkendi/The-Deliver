@@ -3,14 +3,14 @@ import styled from "styled-components";
 import Select from "react-select";
 import { observer } from "mobx-react";
 
+//api
+import { deliveryInfo } from "api/deliver";
+
 //components
 import NumInput from "./NumInput";
 
-//api
-import { deliveryInfo } from "../api/deliver";
-
 //store
-import DeliverStore from "../stores/DeliveryTracking";
+import DeliverStore from "stores/DeliveryTracking";
 
 const DeliverTrackingHeader = observer(() => {
   const [info, setInfo] = useState<any>({});
@@ -57,9 +57,8 @@ const DeliverTrackingHeader = observer(() => {
     control: (_: any, { selectProps: { width } }: any) => ({
       width: width,
       display: "flex",
-      border: `2px solid #d6d6d6`,
+      borderBottom: `2px solid #d6d6d6`,
       opacity: 0.75,
-      borderRadius: 5,
     }),
 
     singleValue: (provided: any, state: any) => {
@@ -78,6 +77,7 @@ const DeliverTrackingHeader = observer(() => {
           <BlockPos>
             <SelectWrap>
               <CustomSelect
+                placeholder="Select Country"
                 onChange={onSelectDelivery}
                 styles={customStyles}
                 menuColor="red"
@@ -108,7 +108,7 @@ const SelectPosition = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-end;
   margin-right: 16px;
   > div {
     opacity: 1;

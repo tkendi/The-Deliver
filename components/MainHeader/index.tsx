@@ -105,7 +105,6 @@ const Container = styled.div<{ menu: boolean }>`
     align-items: flex-start;
     background-color: #fff;
     border-radius: 3px;
-    /* transition-delay: 0.5s; */
     z-index: 9;
 
     display: ${({ menu }) => {

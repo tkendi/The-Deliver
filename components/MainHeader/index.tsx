@@ -125,11 +125,20 @@ const Item = styled.div<{ active?: boolean }>`
   border: none;
   outline: none;
   margin: 0px 15px;
+  position: relative;
 
   ${(props) =>
     props.active &&
     css`
-      border-bottom: 3px solid #1a1a1a;
+      ::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        background-color: #1a1a1a;
+      }
     `}
 `;
 
@@ -154,8 +163,8 @@ const MainTitleContainer = styled.div`
   cursor: pointer;
   transition: 0.2s all linear;
 
-  :hover{
-    transform: scale(1.1  );
+  :hover {
+    transform: scale(1.1);
   }
 
   @media screen and (max-width: 680px) {

@@ -212,10 +212,10 @@ const Nav = styled(motion.nav)`
   }
 `;
 
-const Background = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  width: 350px;
-`;
+// const Background = styled(motion.div)`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background-color: #fff;
+//   width: 350px;
+// `;

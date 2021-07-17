@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 //components
 import MainHeader from "components/MainHeader";
-import DeliveryParsing from "components/deliveryParsing";
-import Header from "components/DeliverTrackingHeader";
+import DeliveryParsing from "containers/deliver/_fragments/deliveryParsing";
+import Header from "containers/deliver/_fragments/DeliverTrackingHeader";
 
 const DeliverContainer = () => {
   return (

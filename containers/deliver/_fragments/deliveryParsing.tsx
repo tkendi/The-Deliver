@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { observer } from "mobx-react";
 
 //store
-import DeliverStore from "../stores/DeliveryTracking";
+import DeliverStore from "../../../stores/DeliveryTracking";
 
 
 const deliveryParsing = observer(() => {

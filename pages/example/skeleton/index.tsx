@@ -1,5 +1,5 @@
 import SkeletonContainer from "containers/example/skeleton";
 
-const AboutPage = () => <SkeletonContainer />;
+const ExampleSkeletonPage = () => <SkeletonContainer />;
 
-export default AboutPage;
+export default ExampleSkeletonPage;

@@ -54,6 +54,12 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
           ></link>
+
+          {/* <!-- Boxicons CDN Link --> */}
+          <link
+            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+            rel="stylesheet"
+          />
         </Head>
         <body style={{ marginRight: 0, marginLeft: 0 }}>
           <Main />

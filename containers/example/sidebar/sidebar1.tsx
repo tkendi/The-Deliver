@@ -99,62 +99,58 @@ const Wrap = styled.div`
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
-  > input {
-    font-size: 15px;
-    color: #fff;
-    font-weight: 400;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    width: 50px;
-    border: none;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    background: #1d1b31;
-  }
+  overflow: scroll;
+`;
+
+const LogoDetail = styled.div`
+`;
+
+const LogoName = styled.div`
+`;
+
+const NavList = styled.ul`
+  margin-top: 20px;
+  height: 100%;
 
   > li {
     position: relative;
     margin: 8px 0;
     list-style: none;
-  }
+    > input {
+      display: none;
+      font-size: 15px;
+      color: #fff;
+      font-weight: 400;
+      outline: none;
+      height: 50px;
+      width: 100%;
+      width: 50px;
+      border: none;
+      border-radius: 12px;
+      transition: all 0.5s ease;
+      background: #1d1b31;
+    }
 
-  > i {
-    color: #fff;
-    height: 60px;
-    min-width: 50px;
-    font-size: 28px;
-    text-align: center;
-    line-height: 60px;
+    > a {
+      > i {
+        color: #fff;
+        height: 60px;
+        min-width: 50px;
+        font-size: 28px;
+        text-align: center;
+        line-height: 60px;
+      }
+    }
   }
 
   :hover {
     > li {
-      background: #fff;
+        >a {
+        }
     }
   }
-`;
 
-const LogoDetail = styled.div`
-  height: 60px;
-  display: flex;
-  align-items: center;
-  position: relative;
 `;
-
-const LogoName = styled.div`
-  height: 60px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 600;
-  opacity: 0;
-  transition: all 0.5s ease;
-`;
-
-const NavList = styled.ul``;
 
 const ToolTip = styled.span`
   position: absolute;

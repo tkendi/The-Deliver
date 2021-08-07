@@ -163,7 +163,9 @@ const NavList = styled.ul`
 
   a:hover {
     > i {
+      width: 100%;
       color: #1a1a1a;
+      border-radius: 5px;
       background-color: #fff;
     }
   }

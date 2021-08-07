@@ -100,29 +100,47 @@ const Wrap = styled.div`
   z-index: 99;
   transition: all 0.5s ease;
   overflow: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const LogoDetail = styled.div`
+  /* height: 78px; */
+  i:nth-child(1) {
+    display: none;
+  }
+
+  > i {
+    /* min-width: 100%; */
+    /* height: 78px; */
+  }
 `;
 
 const LogoName = styled.div`
+  display: none;
 `;
 
 const NavList = styled.ul`
+  width: 100%;
   margin-top: 20px;
-  height: 100%;
+  padding: 0px;
 
   > li {
+    width: 50px;
+    height: 50px;
     position: relative;
-    margin: 8px 0;
+    margin: 0px;
     list-style: none;
+    margin: 20px 0px;
     > input {
+      height: 50px;
       display: none;
       font-size: 15px;
       color: #fff;
       font-weight: 400;
       outline: none;
-      height: 50px;
       width: 100%;
       width: 50px;
       border: none;
@@ -143,13 +161,12 @@ const NavList = styled.ul`
     }
   }
 
-  :hover {
-    > li {
-        >a {
-        }
+  a:hover {
+    > i {
+      color: #1a1a1a;
+      background-color: #fff;
     }
   }
-
 `;
 
 const ToolTip = styled.span`
@@ -182,7 +199,10 @@ const LinkName = styled.span`
   }
 `;
 
-const Profile = styled.li``;
+const Profile = styled.li`
+  position: absolute !important;
+  bottom: 80px;
+`;
 
 const ProfileDetail = styled.div``;
 

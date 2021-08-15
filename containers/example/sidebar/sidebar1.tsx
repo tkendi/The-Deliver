@@ -10,62 +10,62 @@ const SideBar = () => {
       </LogoDetail>
       <NavList>
         <li>
-          <i className="bx bx-search"></i>
-          <input type="text" placeholder="Search..." />
+          <Icon className="bx bx-search"></Icon>
+          <Input type="text" placeholder="Search..." />
           <ToolTip>Search</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-grid-alt"></i>
+            <Icon className="bx bx-grid-alt"></Icon>
             <LinkName>Dashboard</LinkName>
           </a>
           <ToolTip>Dashboard</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-user"></i>
+            <Icon className="bx bx-user"></Icon>
             <LinkName>User</LinkName>
           </a>
           <ToolTip>User</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-chat"></i>
+            <Icon className="bx bx-chat"></Icon>
             <LinkName>Messages</LinkName>
           </a>
           <ToolTip>Messages</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-pie-chart-alt-2"></i>
+            <Icon className="bx bx-pie-chart-alt-2"></Icon>
             <LinkName>Analytics</LinkName>
           </a>
           <ToolTip>Analytics</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-folder"></i>
+            <Icon className="bx bx-folder"></Icon>
             <LinkName>File Manager</LinkName>
           </a>
           <ToolTip>Files</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-cart-alt"></i>
+            <Icon className="bx bx-cart-alt"></Icon>
             <LinkName>Order</LinkName>
           </a>
           <ToolTip>Order</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-heart"></i>
+            <Icon className="bx bx-heart"></Icon>
             <LinkName>Saved</LinkName>
           </a>
           <ToolTip>Saved</ToolTip>
         </li>
         <li>
           <a href="#">
-            <i className="bx bx-cog"></i>
+            <Icon className="bx bx-cog"></Icon>
             <LinkName>Setting</LinkName>
           </a>
           <ToolTip>Setting</ToolTip>
@@ -79,7 +79,7 @@ const SideBar = () => {
               <Job>Web designer</Job>
             </NameJob>
           </ProfileDetail>
-          <i className="bx bx-log-out" id="log_out"></i>
+          <Icon className="bx bx-log-out" id="log_out"></Icon>
           <ToolTip>Setting</ToolTip>
         </Profile>
       </NavList>
@@ -107,10 +107,7 @@ const Wrap = styled.div`
 `;
 
 const LogoDetail = styled.div`
-  /* height: 78px; */
-  /* i:nth-child(1) {
-    display: none;
-  } */
+  margin: 0px;
 
   > i {
     color: #fff;
@@ -118,7 +115,6 @@ const LogoDetail = styled.div`
     min-width: 50px;
     font-size: 28px;
     text-align: center;
-    line-height: 60px;
   }
 
   i:hover {
@@ -136,56 +132,12 @@ const NavList = styled.ul`
   padding: 0px;
 
   > li {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     position: relative;
     margin: 0px;
     list-style: none;
     margin: 20px 0px;
-    > i {
-      color: #fff;
-      height: 60px;
-      min-width: 50px;
-      font-size: 28px;
-      text-align: center;
-      line-height: 60px;
-    }
-
-    > input {
-      height: 50px;
-      display: none;
-      font-size: 15px;
-      color: #fff;
-      font-weight: 400;
-      outline: none;
-      width: 100%;
-      width: 50px;
-      border: none;
-      border-radius: 12px;
-      transition: all 0.5s ease;
-      background: #1d1b31;
-    }
-
-    > a {
-      > i {
-        color: #fff;
-        height: 60px;
-        min-width: 50px;
-        font-size: 28px;
-        text-align: center;
-        line-height: 60px;
-      }
-    }
-  }
-
-  a:hover {
-    > i {
-      transition: all 280ms linear;
-      width: 100%;
-      color: #1a1a1a;
-      border-radius: 5px;
-      background-color: #fff;
-    }
   }
 `;
 
@@ -193,8 +145,8 @@ const ToolTip = styled.span`
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
-  z-index: 3;
-  background: #fff;
+  z-index: 99;
+  background: #000;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 6px 12px;
   border-radius: 4px;
@@ -202,6 +154,7 @@ const ToolTip = styled.span`
   font-weight: 400;
   opacity: 0;
   pointer-events: none;
+  color: #000;
   transition: 0s;
 `;
 
@@ -221,13 +174,50 @@ const LinkName = styled.span`
 
 const Profile = styled.li`
   position: absolute !important;
-  bottom: 80px;
+  bottom: 20px;
 `;
 
-const ProfileDetail = styled.div``;
+const ProfileDetail = styled.div`
+  display: none;
+`;
 
 const NameJob = styled.div``;
 
 const Name = styled.div``;
 
 const Job = styled.div``;
+
+const Input = styled.input`
+  height: 50px;
+  display: none;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  outline: none;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+`;
+
+const Icon = styled.i`
+  color: #fff;
+  height: 60px;
+  min-width: 60px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+  :hover {
+    width: 100%;
+    transition: all 280ms linear;
+    color: #1a1a1a;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    ${ToolTip} {
+      display: block;
+    }
+  }
+`;

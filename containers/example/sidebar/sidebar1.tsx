@@ -4,7 +4,7 @@ const SideBar = () => {
   return (
     <Wrap>
       <LogoDetail>
-        <i className="bx bxl-c-plus-plus icon"></i>
+        {/* <i className="bx bxl-c-plus-plus icon"></i> */}
         <LogoName>sidebar</LogoName>
         <i className="bx bx-menu" id="btn"></i>
       </LogoDetail>
@@ -108,13 +108,21 @@ const Wrap = styled.div`
 
 const LogoDetail = styled.div`
   /* height: 78px; */
-  i:nth-child(1) {
+  /* i:nth-child(1) {
     display: none;
-  }
+  } */
 
   > i {
-    /* min-width: 100%; */
-    /* height: 78px; */
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  i:hover {
+    cursor: pointer;
   }
 `;
 
@@ -134,6 +142,15 @@ const NavList = styled.ul`
     margin: 0px;
     list-style: none;
     margin: 20px 0px;
+    > i {
+      color: #fff;
+      height: 60px;
+      min-width: 50px;
+      font-size: 28px;
+      text-align: center;
+      line-height: 60px;
+    }
+
     > input {
       height: 50px;
       display: none;
@@ -163,6 +180,7 @@ const NavList = styled.ul`
 
   a:hover {
     > i {
+      transition: all 280ms linear;
       width: 100%;
       color: #1a1a1a;
       border-radius: 5px;

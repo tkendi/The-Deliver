@@ -54,11 +54,10 @@ const BorderDiv = styled.div`
     > div {
       position: absolute;
       left: 10px;
-      bottom: 20px;
+      bottom: 25px;
       width: 120px;
       border: 5px solid #f00;
-      border-radius: 10px;
-      opacity: 0.78 ;
+      opacity: 40%;
       z-index: -1;
     }
   }

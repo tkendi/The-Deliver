@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Skeleton = () => {
   return (
@@ -15,9 +15,12 @@ const Skeleton = () => {
       </SkeletonItem>
 
       <SkeletonItem>
-        <div>
-          <SkeletonVertical />
-        </div>
+        <SkeletonGraph>
+          <SkeletonVertical height={150} />
+          <SkeletonVertical height={200} />
+          <SkeletonVertical height={250} />
+          <SkeletonVertical height={300} />
+        </SkeletonGraph>
       </SkeletonItem>
     </>
   );
@@ -56,7 +59,7 @@ const SkeletonImg = styled.div`
       rgba(190, 190, 190, 0.2) 63%
     );
     background-size: 400% 100%;
-    animation: loading 3s infinite linear;
+    animation: loading 1.5s infinite linear;
 
     @keyframes loading {
       0% {
@@ -81,9 +84,10 @@ const SkeletonInfo = styled.div`
 const SkeletonName = styled.p`
   width: 280px;
   height: 18px;
-  background: #f2f2f2;
   position: relative;
+  background: #f2f2f2;
   overflow: hidden;
+  border-radius: 5px;
 
   ::before {
     content: "";
@@ -99,7 +103,7 @@ const SkeletonName = styled.p`
       rgba(190, 190, 190, 0.2) 63%
     );
     background-size: 400% 100%;
-    animation: loading 3s infinite linear;
+    animation: loading 1.5s infinite linear;
 
     @keyframes loading {
       0% {
@@ -116,10 +120,11 @@ const SkeletonName = styled.p`
 const SkeletonEmail = styled.p`
   width: 250px;
   height: 18px;
-  background: #f2f2f2;
   margin-top: 3px;
   position: relative;
+  background: #f2f2f2;
   overflow: hidden;
+  border-radius: 5px;
 
   ::before {
     content: "";
@@ -135,7 +140,7 @@ const SkeletonEmail = styled.p`
       rgba(190, 190, 190, 0.2) 63%
     );
     background-size: 400% 100%;
-    animation: loading 3s infinite linear;
+    animation: loading 1.5s infinite linear;
 
     @keyframes loading {
       0% {
@@ -149,18 +154,28 @@ const SkeletonEmail = styled.p`
   }
 `;
 
-const SkeletonVertical = styled.div`
+const SkeletonVertical = styled.div<{ height: number }>`
   width: 30px;
   height: 300px;
-  background: #f2f2f2;
   position: relative;
   overflow: hidden;
+  background: #f2f2f2;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+
+  ${(props) =>
+    props.height &&
+    css`
+      height: ${props.height}px;
+    `}
 
   ::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 30px;
     height: 100%;
     background: linear-gradient(
@@ -170,7 +185,7 @@ const SkeletonVertical = styled.div`
       rgba(190, 190, 190, 0.2) 63%
     );
     background-size: 400% 100%;
-    animation: loading 3s infinite linear;
+    animation: loading 1.5s infinite linear;
 
     @keyframes loading {
       0% {
@@ -181,5 +196,14 @@ const SkeletonVertical = styled.div`
         transform: translateX(300px);
       }
     }
+  }
+`;
+
+const SkeletonGraph = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  & > *:not(:last-of-type) {
+    margin-right: 10px;
   }
 `;

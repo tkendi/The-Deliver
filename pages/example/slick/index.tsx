@@ -20,23 +20,23 @@ const Slide = () => {
   };
 
   const sliders = [
-    { name: "1", image: "https://source.unsplash.com/random/690x386" },
-    { name: "2", image: "https://source.unsplash.com/random/690x386" },
-    { name: "3", image: "https://source.unsplash.com/random/690x386" },
-    { name: "4", image: "https://source.unsplash.com/random/690x386" },
-    { name: "5", image: "https://source.unsplash.com/random/690x386" },
-    { name: "6", image: "https://source.unsplash.com/random/690x386" },
+    { id: 1, image: "https://source.unsplash.com/random/690x386" },
+    { id: 2, image: "https://source.unsplash.com/random/690x386" },
+    { id: 3, image: "https://source.unsplash.com/random/690x386" },
+    { id: 4, image: "https://source.unsplash.com/random/690x386" },
+    { id: 5, image: "https://source.unsplash.com/random/690x386" },
+    { id: 6, image: "https://source.unsplash.com/random/690x386" },
   ];
 
   return (
     <Container>
       <SlideTitle>인기 서비스</SlideTitle>
       <StyledSlider {...settings}>
-        {sliders.map(({ name, image }: any) => {
+        {sliders.map(({ id, image }: any, index: number) => {
           return (
-            <CardBox>
+            <CardBox key={id}>
               <CardImg alt="인기 서비스" src={image} />
-              <CardText>{name}</CardText>
+              <CardText>{index}</CardText>
             </CardBox>
           );
         })}

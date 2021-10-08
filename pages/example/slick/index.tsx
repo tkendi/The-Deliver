@@ -15,6 +15,8 @@ const Slide = () => {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "300px",
+    // nextArrow: "none",
+    // prevArrow: "none",
   };
 
   const sliders = [
@@ -54,8 +56,8 @@ const SlideTitle = styled.h2`
 
 const StyledSlider = styled(Slider)`
   .slick-list {
-    max-width: 690px;
-    /* width: 1600px; */
+    max-width: 700px;
+    /* width: 100%; */
     margin: auto;
   }
 
@@ -69,7 +71,14 @@ const StyledSlider = styled(Slider)`
   }
 
   .slick-track {
-    /* overflow-x: hidden; */
+    /* max-width: 800px; */
+  }
+
+  @media screen and (max-width: 680px) {
+    .slick-list {
+      width: 100%;
+      margin: auto;
+    }
   }
 `;
 
@@ -78,15 +87,21 @@ const Container = styled.div`
 `;
 
 const CardBox = styled.div`
-  max-width: 600px;
+  width: calc(100% / 6);
   height: max-content;
   cursor: pointer;
 `;
 
 const CardImg = styled.img`
-  max-width: 600px;
+  max-width: 450px;
   height: 386px;
   margin: auto;
+
+  @media screen and (max-width: 680px) {
+    /* display: flex;
+    flex-flow: column; */
+    max-width: 200px;
+  }
 `;
 
 const CardText = styled.p`

@@ -1,50 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
+// import { TZDate } from "tui-calendar";
 
-// data
-import events from "./events";
+// import Calenar "tui-calendar"; /* ES6 */
+import "tui-calendar/dist/tui-calendar.css";
+import "tui-date-picker/dist/tui-date-picker.css";
+import "tui-time-picker/dist/tui-time-picker.css";
 
 const ExampleCalendarFull = () => {
-  const [date, setDate] = useState(new Date());
+  const [today, setToday] = useState<any>();
+  const [calendar, setCalendar] = useState<any>();
 
-  const localizer: any = momentLocalizer(moment);
+  useEffect(() => {
+    if (window) {
+      const Calendar = require("tui-calendar");
+      // const TZDatae = require("tui-calendar");
 
-  console.log(localizer);
+      let temp_calendar = new Calendar("#calendar", {
+        defaultView: "month",
+      });
 
-  const ColoredDateCellWrapper = ({ children }: any) => {
-    return (
-      <>
-        <div>
-          <h1>
-            {date.getFullYear()}.{new Date().getMonth() + 1}
-          </h1>
+      setCalendar(temp_calendar);
+    }
+  }, []);
 
-          <button onClick={() => localizer.continuesPrior()}>{"<"}</button>
-
-          <button>{">"}</button>
-        </div>
-      </>
-    );
-  };
+  // useEffect(() => {
+  //   // const renderDate = calendar;
+  //   // setToday(calendar.getDate());
+  //   console.log(calendar);
+  // }, []);
 
   return (
-    localizer && (
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        step={60}
-        showMultiDayTimes
-        defaultDate={new Date()}
-        style={{ height: 500 }}
-        components={{
-          toolbar: ColoredDateCellWrapper,
-        }}
-      />
-    )
+    <>
+      <div id="menu">
+        <span id="menu-navi">
+          <h3>
+            {new Date(calendar?.getDate()._date).getFullYear()}.
+            {new Date(calendar?.getDate()._date).getMonth() + 1}
+          </h3>
+
+          <button type="button" onClick={() => calendar.prev()}>
+            PREV
+          </button>
+          <button type="button" onClick={() => calendar.next()}>
+            NEXT
+          </button>
+
+          <button type="button" onClick={() => calendar.today()}>
+            Today
+          </button>
+        </span>
+      </div>
+
+      <div id="calendar"></div>
+    </>
   );
 };
 

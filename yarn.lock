@@ -1655,6 +1655,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dompurify@npm:^2.3.1":
+  version: 2.3.3
+  resolution: "dompurify@npm:2.3.3"
+  checksum: 947e3661681bd183aae1cd08f991b14c6aa41fd188f6c801c5e916c2dc4575bbefbaa121ed06dbe0cb0f595545527d588a44b53bfc35d1cbb898c214dc0d7930
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.3.634":
   version: 1.3.685
   resolution: "electron-to-chromium@npm:1.3.685"
@@ -4290,6 +4297,41 @@ next@latest:
   languageName: node
   linkType: hard
 
+"tui-calendar@npm:^1.14.1":
+  version: 1.14.1
+  resolution: "tui-calendar@npm:1.14.1"
+  dependencies:
+    dompurify: ^2.3.1
+    tui-code-snippet: ^1.5.0
+    tui-date-picker: ^4.3.0
+    tui-time-picker: ^2.1.4
+  checksum: ad86b0f9d3e2628312622f8d39404ca4f0b47c86dbf49f7a5d8b1f3e9c5e571e63eadefdf652c57a2465515837bb8f32c7a49cbd875668f52174d11c476a2024
+  languageName: node
+  linkType: hard
+
+"tui-code-snippet@npm:^1.5.0":
+  version: 1.5.2
+  resolution: "tui-code-snippet@npm:1.5.2"
+  checksum: 31bee543d4daa86e1fb82ad18aed37ad7b55842f5823991dd0035d045033921cf7babc77ba17cabd5945d88425bf1eaa1720ce1dddfd2ad20aaa9a18913d8332
+  languageName: node
+  linkType: hard
+
+"tui-date-picker@npm:^4.3.0":
+  version: 4.3.1
+  resolution: "tui-date-picker@npm:4.3.1"
+  dependencies:
+    tui-time-picker: ^2.1.3
+  checksum: af5ad2747a3a14f68596000161243b6fdf2cd6554f6a99864a0c6b59c5c3822815edc139cbf9ea98412109a846af170de9b2abc05edfbe0131873294f1950344
+  languageName: node
+  linkType: hard
+
+"tui-time-picker@npm:^2.1.3, tui-time-picker@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "tui-time-picker@npm:2.1.4"
+  checksum: 1c0d5a3c8ed77c8932d5eb5489a85b844830b834f107925b76df269bd1bf9ec685f4dcf6f56ae6b74afe8bf4c854345ded134c16d6c40a21d9babc06502b9f94
+  languageName: node
+  linkType: hard
+
 "type-fest@npm:^0.7.1":
   version: 0.7.1
   resolution: "type-fest@npm:0.7.1"
@@ -4514,6 +4556,7 @@ typescript@4.0:
     slick-carousel: ^1.8.1
     styled-components: ^5.2.1
     styled-reset: ^4.3.4
+    tui-calendar: ^1.14.1
     typescript: 4.0
   languageName: unknown
   linkType: soft

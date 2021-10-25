@@ -7,7 +7,7 @@ import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
 
 //theme
-import { MONTHLY_CUSTOM_THEME } from "./theme";
+import { MONTHLY_CUSTOM_THEME, templates } from "./theme";
 
 const ExampleCalendarFull = () => {
   const [calendar, setCalendar] = useState<any>();
@@ -20,6 +20,7 @@ const ExampleCalendarFull = () => {
         defaultView: "month",
         taskView: true,
         theme: MONTHLY_CUSTOM_THEME,
+        template: templates,
       });
 
       setCalendar(temp_calendar);
@@ -45,9 +46,21 @@ const ExampleCalendarFull = () => {
           start: "2021-10-22T17:30:00+09:00",
           end: "2021-10-25T17:31:00+09:00",
           color: "#bbdc00", // 일정 색상을 직접 지정할 수 있어요
-          bgColor: "#1C8F4D",
-          dragBgColor: "#1C8F4D",
+          bgColor: "#0F4C81",
+          dragBgColor: "#0F4C81",
           borderColor: "#ffffff",
+        },
+        {
+          id: "3",
+          calendarId: "3",
+          title: "third schedule",
+          category: "time",
+          start: "2021-10-25T17:30:00+09:00",
+          end: "2021-10-25T17:31:00+09:00",
+          color: "#bbdc00", // 일정 색상을 직접 지정할 수 있어요
+          bgColor: "#0F4C86",
+          dragBgColor: "#0F4C81",
+          borderColor: "none",
         },
       ]);
     }

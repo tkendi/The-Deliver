@@ -39,13 +39,13 @@ export const MONTHLY_CUSTOM_THEME = {
 function getTimeTemplate(schedule, isAllDay) {
   var html = [];
 
-  // if (!isAllDay) {
-  //   html.push(
-  //     "<strong>" +
-  //       moment(schedule.start.getTime()).format("HH:mm") +
-  //       "</strong> "
-  //   );
-  // }
+  if (!isAllDay) {
+    html.push(
+      "<strong>" +
+        moment(schedule.start.getTime()).format("HH:mm") +
+        "</strong> "
+    );
+  }
   if (schedule.isPrivate) {
     html.push('<span class="calendar-font-icon ic-lock-b">asdf</span>');
     html.push(" Private");
@@ -61,7 +61,7 @@ function getTimeTemplate(schedule, isAllDay) {
     } else if (schedule.location) {
       html.push('<span class="calendar-font-icon ic-location-b">asdf</span>');
     }
-    html.push("[icon position]" + schedule.title);
+    html.push("[icon position] &nbsp" + schedule.title);
   }
 
   return html.join("");
@@ -134,14 +134,14 @@ export const templates = {
   },
   goingDuration: function (schedule) {
     return (
-      '<span class="calendar-icon ic-travel-time">sadf</span>' +
+      '<span class="calendar-icon ic-travel-time"></span>' +
       schedule.goingDuration +
       "min."
     );
   },
   comingDuration: function (schedule) {
     return (
-      '<span class="calendar-icon ic-travel-time">sadf</span>' +
+      '<span class="calendar-icon ic-travel-time"></span>' +
       schedule.comingDuration +
       "min."
     );
@@ -157,7 +157,7 @@ export const templates = {
     );
   },
   monthMoreClose: function () {
-    return '<span class="tui-full-calendar-icon tui-full-calendar-ic-close">sadf</span>';
+    return '<span class="tui-full-calendar-icon tui-full-calendar-ic-close"></span>';
   },
   monthGridHeader: function (dayModel) {
     var date = parseInt(dayModel.date.split("-")[2], 10);

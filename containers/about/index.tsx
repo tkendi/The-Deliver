@@ -19,15 +19,12 @@ const AboutContainer = () => {
           <Title bold color="#1A1A1A">
             About this
           </Title>
-          <Text>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release o
-          </Text>
+          <Text>We can check delivery for you</Text>
+          <Text>We can know where my parcel</Text>
+          <Text>We can know how long time for receving</Text>
+          {/* This web site current use my testing web site. Check
+            /examples/calendar, /examples/motion, /example/sidebar,
+            /example/skeleton */}
         </TitleWrap>
       </Container>
     </React.Fragment>

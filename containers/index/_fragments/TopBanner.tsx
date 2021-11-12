@@ -16,16 +16,16 @@ const TopBanner = () => {
             Lorem Ipsum has been the industry's standard dummy text
             <br /> ever since the 1500s,
           </p>
+        </BannerTextWrap>
+        <MoveImg />
+        <LinkContainer>
           <Link href="/deliver">
             <BannerText style={{ paddingLeft: 0 }}>Checking Now</BannerText>
           </Link>
           <Link href="/about">
             <BannerText another={true}>ABout Now</BannerText>
           </Link>
-        </BannerTextWrap>
-        <MoveImg>
-          {/* <p>asdf</p> */}
-        </MoveImg>
+        </LinkContainer>
       </BannerContainer>
     </BannerWrap>
   );
@@ -35,6 +35,7 @@ export default TopBanner;
 
 const BannerWrap = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,19 +59,20 @@ const BannerContainer = styled.div`
 `;
 
 const BannerTextWrap = styled.div`
+  margin-top: 50px;
   padding-left: 30px;
-  z-index: 9999;
+  z-index: 99;
 
   @media screen and (max-width: 680px) {
     padding: 0px;
   }
 `;
 
-const BannerTitle = styled.p`
+const BannerTitle = styled.h1`
   font-family: "Fjalla One", sans-serif;
   color: #3cc;
   /* line-height: px; */
-  font-size: 28px;
+  font-size: 48px;
   font-weight: bold;
   margin-bottom: 20px;
 `;
@@ -98,7 +100,7 @@ const BannerText = styled.button<{ another?: boolean }>`
 
 const MoveImg = styled.div<{ width?: number }>`
   position: absolute;
-  bottom: 100px;
+  bottom: 200px;
   right: 100px;
   width: 650px;
   height: 320px;
@@ -115,15 +117,21 @@ const MoveImg = styled.div<{ width?: number }>`
   @keyframes truck {
     0% {
       left: -10px;
-      bottom: 100px;
+      bottom: 200px;
     }
     100% {
       left: 2000px;
-      bottom: 100px;
+      bottom: 150px;
     }
   }
 
   @media screen and (max-width: 980px) {
     display: none;
   }
+`;
+
+const LinkContainer = styled.div`
+  position: absolute;
+  bottom: 70px;
+  left: 55px;
 `;

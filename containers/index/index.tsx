@@ -7,12 +7,6 @@ import TopBanner from "./_fragments/TopBanner";
 import MiddleBanner from "./_fragments/MiddleBanner";
 
 const MainContainer = () => {
-  // const [move, setMove] = React.useState<number>(0);
-
-  // React.useEffect(() => {
-  //   setMove(window.innerWidth);
-  // }, []);
-
   return (
     <>
       <MainHeader />

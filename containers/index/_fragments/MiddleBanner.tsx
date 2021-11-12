@@ -81,7 +81,7 @@ const ImageWrap = styled.div`
     }
     width: 50%;
     padding: 0px 20px;
-    border-left: 3px solid #efefef;
+    /* border-left: 3px solid #efefef; */
     text-overflow: ellipsis;
     overflow: hidden;
     > p {

@@ -31,7 +31,8 @@
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "tui-calendar": "^1.14.1"
+    "tui-calendar": "^1.14.1",
+    "web-push": "^3.4.5"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

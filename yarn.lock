@@ -857,7 +857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asn1.js@npm:^5.2.0":
+"asn1.js@npm:^5.2.0, asn1.js@npm:^5.3.0":
   version: 5.4.1
   resolution: "asn1.js@npm:5.4.1"
   dependencies:
@@ -1090,6 +1090,13 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: aa4367989d0046487ed94f6318280189ddbf28112870e31aff5405e6dd5a862ad254e70aa3058773a9ffe9ae5ea29d567ce0c5b8a4020c1052b63cd801869847
+  languageName: node
+  linkType: hard
+
+"buffer-equal-constant-time@npm:1.0.1":
+  version: 1.0.1
+  resolution: "buffer-equal-constant-time@npm:1.0.1"
+  checksum: 80bb945f5d782a56f374b292770901065bad21420e34936ecbe949e57724b4a13874f735850dd1cc61f078773c4fb5493a41391e7bda40d1fa388d6bd80daaab
   languageName: node
   linkType: hard
 
@@ -1662,6 +1669,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ecdsa-sig-formatter@npm:1.0.11":
+  version: 1.0.11
+  resolution: "ecdsa-sig-formatter@npm:1.0.11"
+  dependencies:
+    safe-buffer: ^5.0.1
+  checksum: 207f9ab1c2669b8e65540bce29506134613dd5f122cccf1e6a560f4d63f2732d427d938f8481df175505aad94583bcb32c688737bb39a6df0625f903d6d93c03
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.3.634":
   version: 1.3.685
   resolution: "electron-to-chromium@npm:1.3.685"
@@ -2122,6 +2138,15 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"http_ece@npm:1.1.0":
+  version: 1.1.0
+  resolution: "http_ece@npm:1.1.0"
+  dependencies:
+    urlsafe-base64: ~1.0.0
+  checksum: 220a9a1c09165b4a3194c9b68a1597d3afc66a6bf8bc3ae1ae8d80d5117d8529f1346d59da7f096df8f3adbe2f42697a6edb31a6075b946207b910b72f28adba
+  languageName: node
+  linkType: hard
+
 "https-browserify@npm:^1.0.0":
   version: 1.0.0
   resolution: "https-browserify@npm:1.0.0"
@@ -2494,6 +2519,27 @@ fsevents@~2.3.1:
   bin:
     jstransform: bin/jstransform
   checksum: 90c3c3e7100a542c83bc4542337c2e6b5da72e450510551bfb4bdf93c20d9bbafa350cf3fe99205af0caa1a85d9bdb1ec284bee8018d06fe4ff129a467010e8c
+  languageName: node
+  linkType: hard
+
+"jwa@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "jwa@npm:2.0.0"
+  dependencies:
+    buffer-equal-constant-time: 1.0.1
+    ecdsa-sig-formatter: 1.0.11
+    safe-buffer: ^5.0.1
+  checksum: 8f00b71ad5fe94cb55006d0d19202f8f56889109caada2f7eeb63ca81755769ce87f4f48101967f398462e3b8ae4faebfbd5a0269cb755dead5d63c77ba4d2f1
+  languageName: node
+  linkType: hard
+
+"jws@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "jws@npm:4.0.0"
+  dependencies:
+    jwa: ^2.0.0
+    safe-buffer: ^5.0.1
+  checksum: d68d07aa6d1b8cb35c363a9bd2b48f15064d342a5d9dc18a250dbbce8dc06bd7e4792516c50baa16b8d14f61167c19e851fd7f66b59ecc68b7f6a013759765f7
   languageName: node
   linkType: hard
 
@@ -4415,6 +4461,13 @@ typescript@4.0:
   languageName: node
   linkType: hard
 
+"urlsafe-base64@npm:^1.0.0, urlsafe-base64@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "urlsafe-base64@npm:1.0.0"
+  checksum: 41d28a337044e5ad287174e928227b025d03424c5cd316956fdcbd916fccdc70981fa9a67e77325c5250c8150ba90bca0de65e783aa6235567b7f820e1146cb6
+  languageName: node
+  linkType: hard
+
 "use-subscription@npm:1.5.1":
   version: 1.5.1
   resolution: "use-subscription@npm:1.5.1"
@@ -4474,6 +4527,22 @@ typescript@4.0:
     glob-to-regexp: ^0.4.1
     graceful-fs: ^4.1.2
   checksum: 4a2d7ed1b441814b232db9c065beaee40ad0e37f77279331d663fa950b6b1926210a8dfa6009dc806b248f15d48826c9c6ce1a7fd6e6c94178d13c6c0a33f32c
+  languageName: node
+  linkType: hard
+
+"web-push@npm:^3.4.5":
+  version: 3.4.5
+  resolution: "web-push@npm:3.4.5"
+  dependencies:
+    asn1.js: ^5.3.0
+    http_ece: 1.1.0
+    https-proxy-agent: ^5.0.0
+    jws: ^4.0.0
+    minimist: ^1.2.5
+    urlsafe-base64: ^1.0.0
+  bin:
+    web-push: src/cli.js
+  checksum: b81ffb404539c00a4d1b7b5a8ec788963f23cf042e1491d4c567167465a7211b497752b8e96156be4848543414ce5f8633ca9ed9d7f2707fe1bd4192616f41eb
   languageName: node
   linkType: hard
 
@@ -4558,6 +4627,7 @@ typescript@4.0:
     styled-reset: ^4.3.4
     tui-calendar: ^1.14.1
     typescript: 4.0
+    web-push: ^3.4.5
   languageName: unknown
   linkType: soft
 

@@ -9,7 +9,7 @@ self.addEventListener("push", (event) => {
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
 
-  const urlToOpen = "https://localhost:1234";
+  const urlToOpen = "https://localhost:3000";
 
   event.waitUntil(
     self.clients

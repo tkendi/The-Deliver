@@ -1,30 +1,39 @@
-self.addEventListener("push", (event) => {
-  let { title, body, icon, tag } = JSON.parse(event.data && event.data.text());
+'use strict'
 
+self.addEventListener('push', function (event) {
+  const data = JSON.parse(event.data.text())
   event.waitUntil(
-    self.registration.showNotification(title || "", { body, tag, icon })
-  );
-});
+    registration.showNotification(data.title, {
+      body: data.message,
+      icon: '/icons/android-chrome-192x192.png'
+    })
+  )
+})
 
-self.addEventListener("notificationclick", function (event) {
-  event.notification.close();
-
-  const urlToOpen = "https://localhost:3000";
-
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close()
   event.waitUntil(
-    self.clients
-      .matchAll({
-        type: "window",
-        includeUncontrolled: true,
-      })
-      .then(function (clientList) {
-        if (clientList.length > 0) {
-          // 이미 열려있는 탭이 있는 경우
-          return clientList[0]
-            .focus()
-            .then((client) => client.navigate(urlToOpen));
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (clientList) {
+      if (clientList.length > 0) {
+        let client = clientList[0]
+        for (let i = 0; i < clientList.length; i++) {
+          if (clientList[i].focused) {
+            client = clientList[i]
+          }
         }
-        return self.clients.openWindow(urlToOpen);
-      })
-  );
-});
+        return client.focus()
+      }
+      return clients.openWindow('/')
+    })
+  )
+})
+
+// self.addEventListener('pushsubscriptionchange', function(event) {
+//   event.waitUntil(
+//       Promise.all([
+//           Promise.resolve(event.oldSubscription ? deleteSubscription(event.oldSubscription) : true),
+//           Promise.resolve(event.newSubscription ? event.newSubscription : subscribePush(registration))
+//               .then(function(sub) { return saveSubscription(sub) })
+//       ])
+//   )
+// })

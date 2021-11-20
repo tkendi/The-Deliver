@@ -1,54 +1,112 @@
-import React, { useEffect } from "react";
-import { PublicKey } from "./constants";
+import { useEffect, useState } from "react";
+import Head from "next/head";
+
+const base64ToUint8Array = (base64: any) => {
+  const padding = "=".repeat((4 - (base64.length % 4)) % 4);
+  const b64 = (base64 + padding).replace(/-/g, "+").replace(/_/g, "/");
+
+  const rawData = window.atob(b64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+};
 
 const PushExampleContainer = () => {
-  const postSubscription = (Subscription: PushSubscription) => {
-    const subscription = JSON.stringify({
-      subscription: Subscription.toJSON(),
-    });
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [subscription, setSubscription] = useState(null);
+  const [registration, setRegistration] = useState(null);
 
-    fetch("http://localhost:8000/register", {
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      "serviceWorker" in navigator &&
+      window.workbox !== undefined
+    ) {
+      console.log("income")
+      // run only in browser
+      navigator.serviceWorker.ready.then((reg) => {
+        reg.pushManager.getSubscription().then((sub) => {
+          if (
+            sub &&
+            !(
+              sub.expirationTime &&
+              Date.now() > sub.expirationTime - 5 * 60 * 1000
+            )
+          ) {
+            setSubscription(sub);
+            setIsSubscribed(true);
+          }
+        });
+        setRegistration(reg);
+      });
+    } else {
+      console.log("error")
+    }
+  }, []);
+
+  console.log("ADSF",registration)
+
+  const subscribeButtonOnClick = async (event) => {
+    event.preventDefault();
+    const sub = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: base64ToUint8Array(
+        process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY
+      ),
+    });
+    // TODO: you should call your API to save subscription data on server in order to send web push notification from server
+    setSubscription(sub);
+    setIsSubscribed(true);
+    console.log("web push subscribed!");
+    console.log(sub);
+  };
+
+  const unsubscribeButtonOnClick = async (event) => {
+    event.preventDefault();
+    await subscription?.unsubscribe();
+    // TODO: you should call your API to delete or invalidate subscription data on server
+    setSubscription(null);
+    setIsSubscribed(false);
+    console.log("web push unsubscribed!");
+  };
+
+  const sendNotificationButtonOnClick = async (event) => {
+    event.preventDefault();
+    if (subscription == null) {
+      console.error("web push not subscribed");
+      return;
+    }
+
+    await fetch("/api/notification", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
       },
-      body: subscription,
-    }).then(function (data) {
-      console.log(data);
+      body: JSON.stringify({
+        subscription,
+      }),
     });
   };
 
-  useEffect(() => {
-    Notification.requestPermission().then((status) => {
-      console.log("Notification 상태", status);
-
-      if (status === "denied") {
-        alert("Notification 거부됨");
-      } else if (navigator.serviceWorker) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("./serviceWorker.js")
-            .then((registration) => {
-              const subscriptionOption = {
-                userVisibleOnly: true,
-                applicationServerKey: PublicKey,
-              };
-
-              return registration.pushManager.subscribe(subscriptionOption);
-            })
-            .then((pushSubscription) => {
-              //   console.log(pushSubscription);
-              postSubscription(pushSubscription);
-            });
-        });
-      }
-    });
-  }, []);
-
   return (
-    <div>
-      <div></div>
-    </div>
+    <>
+      <Head>
+        <title>next-pwa example</title>
+      </Head>
+      <h1>Next.js + PWA = AWESOME!</h1>
+      <button onClick={subscribeButtonOnClick} disabled={isSubscribed}>
+        Subscribe
+      </button>
+      <button onClick={unsubscribeButtonOnClick} disabled={!isSubscribed}>
+        Unsubscribe
+      </button>
+      <button onClick={sendNotificationButtonOnClick} disabled={!isSubscribed}>
+        Send Notification
+      </button>
+    </>
   );
 };
 
